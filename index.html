@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta Estratégica – Alcaldesa Sandra Sánchez | Municipio Bolívar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:    #0a1628;
+    --navy2:   #0d1f3c;
+    --blue:    #1a3a6b;
+    --accent:  #c8973a;
+    --amber:   #e0a94b;
+    --red:     #b83232;
+    --white:   #ffffff;
+    --offwhite:#f4f1ec;
+    --gray:    #8a99b0;
+    --light:   #d6dde8;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--offwhite);
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--navy);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--navy);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+  }
+  .cover::before {
+    content:'';
+    position:absolute;
+    top:0; right:0; bottom:0; left:60%;
+    background: linear-gradient(135deg, transparent 0%, #1a3a6b44 100%);
+    pointer-events:none;
+  }
+  .cover-stripes {
+    position:absolute;
+    top:0; right:80px;
+    width:6px;
+    height:100%;
+    display:flex;
+    gap:8px;
+  }
+  .cover-stripes span {
+    display:block;
+    width:4px;
+    height:100%;
+    opacity:0.15;
+  }
+  .cover-stripes span:nth-child(1){background:var(--accent); opacity:0.4;}
+  .cover-stripes span:nth-child(2){background:var(--white); opacity:0.2;}
+  .cover-stripes span:nth-child(3){background:var(--accent); opacity:0.15;}
+  .cover-stripes span:nth-child(4){background:var(--white); opacity:0.08;}
+
+  .cover-top {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 32px 56px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .brand-logo {
+    display:flex;
+    flex-direction:column;
+  }
+  .brand-logo .eyebrow {
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color: var(--accent);
+    font-weight:600;
+  }
+  .brand-logo .name {
+    font-family:'Playfair Display', serif;
+    font-size:18px;
+    color:var(--white);
+    font-weight:700;
+    line-height:1.2;
+  }
+  .cover-badge {
+    background: var(--accent);
+    color: var(--navy);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    padding:6px 16px;
+    border-radius:2px;
+  }
+
+  .cover-body {
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding: 60px 56px;
+  }
+  .cover-pre {
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:600;
+    margin-bottom:20px;
+  }
+  .cover-title {
+    font-family:'Playfair Display', serif;
+    font-size:clamp(42px,5vw,72px);
+    font-weight:900;
+    color:var(--white);
+    line-height:1.05;
+    max-width:700px;
+    margin-bottom:28px;
+  }
+  .cover-title em {
+    font-style:italic;
+    color:var(--accent);
+  }
+  .cover-sub {
+    font-size:17px;
+    color:var(--light);
+    max-width:540px;
+    line-height:1.7;
+    margin-bottom:48px;
+  }
+  .cover-pills {
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .cover-pill {
+    border:1px solid rgba(200,151,58,0.5);
+    color:var(--accent);
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    padding:7px 18px;
+    border-radius:2px;
+  }
+  .cover-bottom {
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    padding:32px 56px;
+    border-top:1px solid rgba(255,255,255,0.1);
+  }
+  .cover-meta { color:var(--gray); font-size:12px; }
+  .cover-meta strong { color:var(--light); }
+  .cover-stats {
+    display:flex;
+    gap:40px;
+  }
+  .cstat { text-align:right; }
+  .cstat .num {
+    font-family:'Playfair Display',serif;
+    font-size:28px;
+    color:var(--white);
+    display:block;
+  }
+  .cstat .lbl {
+    font-size:10px;
+    color:var(--gray);
+    text-transform:uppercase;
+    letter-spacing:2px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    max-width:1100px;
+    margin:0 auto;
+    padding:72px 40px;
+  }
+  .section-dark {
+    background:var(--navy);
+    max-width:100%;
+    padding:72px 0;
+  }
+  .section-dark .inner { max-width:1100px; margin:0 auto; padding:0 40px; }
+
+  .section-accent {
+    background:var(--blue);
+    max-width:100%;
+    padding:72px 0;
+  }
+  .section-accent .inner { max-width:1100px; margin:0 auto; padding:0 40px; }
+
+  .sec-label {
+    font-size:10px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .sec-title {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(28px,3.5vw,42px);
+    font-weight:900;
+    line-height:1.1;
+    margin-bottom:16px;
+  }
+  .sec-title.light { color:var(--white); }
+  .sec-desc {
+    font-size:16px;
+    color:#5a6a80;
+    max-width:640px;
+    line-height:1.75;
+    margin-bottom:48px;
+  }
+  .sec-desc.light { color:var(--light); }
+
+  .divider {
+    width:48px; height:3px;
+    background:var(--accent);
+    margin-bottom:24px;
+  }
+
+  /* ── DIAGNOSTICO GRID ── */
+  .diag-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:1px;
+    background:var(--light);
+    border:1px solid var(--light);
+    margin-bottom:48px;
+  }
+  .diag-card {
+    background:var(--white);
+    padding:32px 28px;
+  }
+  .diag-card.highlight {
+    background:var(--navy);
+  }
+  .diag-card.highlight .dc-num { color:var(--accent); }
+  .diag-card.highlight .dc-label { color:var(--light); }
+  .diag-card.highlight .dc-desc { color:var(--gray); }
+  .dc-num {
+    font-family:'Playfair Display',serif;
+    font-size:38px;
+    font-weight:900;
+    color:var(--navy);
+    line-height:1;
+    margin-bottom:6px;
+  }
+  .dc-label {
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--blue);
+    margin-bottom:10px;
+  }
+  .dc-desc {
+    font-size:13.5px;
+    color:#6a7a90;
+    line-height:1.6;
+  }
+
+  /* ── BAR CHART ── */
+  .chart-wrap {
+    background:var(--white);
+    border:1px solid var(--light);
+    padding:32px 36px;
+    margin-bottom:32px;
+  }
+  .chart-title {
+    font-size:13px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color:var(--navy);
+    margin-bottom:24px;
+  }
+  .chart-title span { color:var(--accent); }
+  .bar-row {
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-bottom:14px;
+  }
+  .bar-lbl {
+    width:200px;
+    font-size:13px;
+    color:#5a6a80;
+    flex-shrink:0;
+    text-align:right;
+  }
+  .bar-track {
+    flex:1;
+    height:22px;
+    background:#eef1f6;
+    border-radius:2px;
+    overflow:hidden;
+    position:relative;
+  }
+  .bar-fill {
+    height:100%;
+    border-radius:2px;
+    display:flex;
+    align-items:center;
+    padding-left:10px;
+    font-size:11px;
+    font-weight:700;
+    color:var(--white);
+  }
+  .bar-fill.navy  { background:var(--navy); }
+  .bar-fill.blue  { background:var(--blue); }
+  .bar-fill.amber { background:var(--amber); }
+  .bar-fill.red   { background:var(--red); }
+
+  /* ── RIESGO TABLE ── */
+  .risk-table {
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom:40px;
+  }
+  .risk-table th {
+    background:var(--navy);
+    color:var(--white);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    padding:14px 20px;
+    text-align:left;
+  }
+  .risk-table td {
+    padding:14px 20px;
+    font-size:13.5px;
+    border-bottom:1px solid var(--light);
+    background:var(--white);
+    vertical-align:top;
+  }
+  .risk-table tr:nth-child(even) td { background:#f8f9fb; }
+  .badge {
+    display:inline-block;
+    padding:3px 10px;
+    border-radius:2px;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+  }
+  .badge.alto   { background:#fdecea; color:var(--red); }
+  .badge.medio  { background:#fff3dc; color:#b07010; }
+  .badge.bajo   { background:#e8f5e9; color:#2e7d32; }
+
+  /* ── SERVICES ── */
+  .services-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:rgba(255,255,255,0.1);
+  }
+  .svc-card {
+    background:var(--navy2);
+    padding:36px 32px;
+    position:relative;
+    overflow:hidden;
+  }
+  .svc-card::before {
+    content:'';
+    position:absolute;
+    top:0; left:0;
+    width:3px; height:100%;
+    background:var(--accent);
+  }
+  .svc-num {
+    font-family:'Playfair Display',serif;
+    font-size:60px;
+    font-weight:900;
+    color:rgba(255,255,255,0.04);
+    position:absolute;
+    top:16px; right:24px;
+    line-height:1;
+  }
+  .svc-tag {
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .svc-name {
+    font-family:'Playfair Display',serif;
+    font-size:22px;
+    color:var(--white);
+    font-weight:700;
+    margin-bottom:12px;
+    line-height:1.2;
+  }
+  .svc-desc {
+    font-size:13.5px;
+    color:var(--gray);
+    line-height:1.7;
+    margin-bottom:18px;
+  }
+  .svc-items {
+    list-style:none;
+  }
+  .svc-items li {
+    font-size:12px;
+    color:var(--light);
+    padding:4px 0;
+    padding-left:16px;
+    position:relative;
+  }
+  .svc-items li::before {
+    content:'▸';
+    position:absolute;
+    left:0;
+    color:var(--accent);
+    font-size:10px;
+  }
+
+  /* ── PLANS ── */
+  .plans-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    margin-bottom:48px;
+    border:1px solid var(--light);
+  }
+  .plan-card {
+    padding:32px 24px;
+    border-right:1px solid var(--light);
+    background:var(--white);
+    position:relative;
+    transition:transform 0.2s;
+  }
+  .plan-card:last-child { border-right:none; }
+  .plan-card.featured {
+    background:var(--navy);
+    border:3px solid var(--accent);
+  }
+  .plan-card.featured .plan-name { color:var(--white); }
+  .plan-card.featured .plan-price { color:var(--accent); }
+  .plan-card.featured .plan-period { color:var(--gray); }
+  .plan-card.featured .plan-tagline { color:var(--light); }
+  .plan-card.featured .plan-features li { color:var(--light); }
+  .plan-featured-badge {
+    position:absolute;
+    top:-1px; left:50%; transform:translateX(-50%);
+    background:var(--accent);
+    color:var(--navy);
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    padding:4px 14px;
+    white-space:nowrap;
+  }
+  .plan-level {
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .plan-name {
+    font-family:'Playfair Display',serif;
+    font-size:20px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:16px;
+    line-height:1.2;
+  }
+  .plan-price {
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+    font-weight:900;
+    color:var(--navy);
+    line-height:1;
+  }
+  .plan-period {
+    font-size:12px;
+    color:#8a99b0;
+    margin-bottom:20px;
+  }
+  .plan-tagline {
+    font-size:13px;
+    color:#5a6a80;
+    line-height:1.6;
+    margin-bottom:20px;
+    padding-top:16px;
+    border-top:1px solid var(--light);
+  }
+  .plan-card.featured .plan-tagline { border-top-color:rgba(255,255,255,0.15); }
+  .plan-features {
+    list-style:none;
+    padding:0;
+  }
+  .plan-features li {
+    font-size:12px;
+    color:#5a6a80;
+    padding:5px 0;
+    padding-left:16px;
+    position:relative;
+    border-bottom:1px solid #f0f0f0;
+  }
+  .plan-card.featured .plan-features li { border-bottom-color:rgba(255,255,255,0.08); }
+  .plan-features li::before {
+    content:'✓';
+    position:absolute;
+    left:0;
+    color:var(--accent);
+    font-weight:700;
+    font-size:11px;
+  }
+  .plan-features li.muted { opacity:0.35; }
+  .plan-features li.muted::before { content:'—'; }
+
+  /* ── TEAM ── */
+  .team-table {
+    width:100%;
+    border-collapse:collapse;
+  }
+  .team-table th {
+    background:var(--accent);
+    color:var(--navy);
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight:700;
+    padding:12px 16px;
+    text-align:left;
+  }
+  .team-table td {
+    padding:12px 16px;
+    font-size:13px;
+    border-bottom:1px solid var(--light);
+    background:var(--white);
+  }
+  .team-table tr:nth-child(even) td { background:#f8f9fb; }
+  .check { color:#2e7d32; font-weight:700; }
+  .cross { color:#ccc; }
+
+  /* ── QUOTE ── */
+  .quote-block {
+    border-left:4px solid var(--accent);
+    padding:20px 28px;
+    background:rgba(200,151,58,0.06);
+    margin:32px 0;
+  }
+  .quote-block p {
+    font-family:'Playfair Display',serif;
+    font-size:18px;
+    font-style:italic;
+    color:var(--navy);
+    line-height:1.6;
+  }
+  .quote-block cite {
+    display:block;
+    margin-top:8px;
+    font-size:12px;
+    color:var(--gray);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-style:normal;
+  }
+
+  /* ── SCENARIO TABLE ── */
+  .scenario-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:1px;
+    background:rgba(255,255,255,0.15);
+    margin-bottom:40px;
+  }
+  .scen-card {
+    padding:28px 24px;
+    position:relative;
+  }
+  .scen-card.opt  { background:rgba(46,125,50,0.15); }
+  .scen-card.real { background:rgba(26,58,107,0.6); }
+  .scen-card.crit { background:rgba(184,50,50,0.15); }
+  .scen-type {
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .scen-card.opt  .scen-type { color:#69f0ae; }
+  .scen-card.real .scen-type { color:var(--amber); }
+  .scen-card.crit .scen-type { color:#ff6b6b; }
+  .scen-title {
+    font-family:'Playfair Display',serif;
+    font-size:18px;
+    color:var(--white);
+    margin-bottom:12px;
+    font-weight:700;
+  }
+  .scen-desc {
+    font-size:12.5px;
+    color:rgba(255,255,255,0.75);
+    line-height:1.7;
+  }
+  .scen-prob {
+    margin-top:14px;
+    font-size:11px;
+    color:rgba(255,255,255,0.5);
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  .scen-prob strong { color:var(--amber); }
+
+  /* ── CTA ── */
+  .cta-section {
+    background:var(--navy);
+    padding:72px 0;
+    text-align:center;
+  }
+  .cta-section .inner {
+    max-width:700px;
+    margin:0 auto;
+    padding:0 40px;
+  }
+  .cta-title {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(28px,4vw,46px);
+    color:var(--white);
+    font-weight:900;
+    line-height:1.1;
+    margin-bottom:20px;
+  }
+  .cta-title em { color:var(--accent); font-style:italic; }
+  .cta-desc {
+    color:var(--light);
+    font-size:16px;
+    line-height:1.7;
+    margin-bottom:36px;
+  }
+  .cta-btn {
+    display:inline-block;
+    background:var(--accent);
+    color:var(--navy);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    padding:16px 40px;
+    text-decoration:none;
+    border-radius:2px;
+    margin:0 8px;
+  }
+  .cta-btn.outline {
+    background:transparent;
+    border:1px solid rgba(200,151,58,0.5);
+    color:var(--accent);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background:#06101e;
+    padding:24px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  footer .fl {
+    font-size:11px;
+    color:rgba(255,255,255,0.25);
+  }
+  footer .fr {
+    font-family:'Playfair Display',serif;
+    font-size:14px;
+    color:var(--accent);
+    font-style:italic;
+  }
+
+  /* Two column */
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  .three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; }
+
+  /* ── DIAGNOSIS INTRO ── */
+  .intro-box {
+    background:var(--white);
+    border-left:4px solid var(--accent);
+    padding:28px 32px;
+    margin-bottom:40px;
+  }
+  .intro-box p {
+    font-size:15px;
+    line-height:1.75;
+    color:var(--navy);
+  }
+  .intro-box p strong { color:var(--accent); }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position:relative;
+    padding-left:36px;
+    margin-bottom:40px;
+  }
+  .timeline::before {
+    content:'';
+    position:absolute;
+    left:10px; top:0; bottom:0;
+    width:2px;
+    background:var(--light);
+  }
+  .tl-item {
+    position:relative;
+    margin-bottom:28px;
+  }
+  .tl-dot {
+    position:absolute;
+    left:-30px;
+    top:4px;
+    width:14px; height:14px;
+    border-radius:50%;
+    background:var(--accent);
+    border:3px solid var(--white);
+    box-shadow:0 0 0 2px var(--accent);
+  }
+  .tl-month {
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .tl-title {
+    font-size:15px;
+    font-weight:700;
+    color:var(--navy);
+    margin-bottom:4px;
+  }
+  .tl-desc {
+    font-size:13px;
+    color:#6a7a90;
+    line-height:1.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ COVER ═══════════════ -->
+<div class="cover">
+  <div class="cover-stripes">
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <div class="cover-top">
+    <div class="brand-logo">
+      <span class="eyebrow">Unidad Estratégica</span>
+      <span class="name">Poder &amp; Narrativa</span>
+    </div>
+    <div class="cover-badge">Propuesta Confidencial · 2025</div>
+  </div>
+  <div class="cover-body">
+    <p class="cover-pre">Centro de Inteligencia Política &amp; Comunicación Estratégica</p>
+    <h1 class="cover-title">
+      Liderazgo <em>Fronterizo.</em><br>Narrativa <em>Soberana.</em>
+    </h1>
+    <p class="cover-sub">
+      Propuesta de consultoría estratégica integral para la gestión de la
+      <strong style="color:#fff">Alcaldesa Sandra Sánchez</strong> —
+      Municipio Bolívar, Estado Táchira.
+      Un sistema de inteligencia, comunicación y posicionamiento diseñado
+      para anticipar escenarios, construir poder narrativo y proteger el
+      liderazgo municipal en la frontera más activa de Venezuela.
+    </p>
+    <div class="cover-pills">
+      <span class="cover-pill">Inteligencia Política</span>
+      <span class="cover-pill">Comunicación Estratégica</span>
+      <span class="cover-pill">Gestión Digital</span>
+      <span class="cover-pill">Branding Municipal</span>
+    </div>
+  </div>
+  <div class="cover-bottom">
+    <div class="cover-meta">
+      Preparado para: <strong>Alcaldía del Municipio Bolívar</strong> · San Antonio del Táchira, Táchira<br>
+      Documento confidencial — uso exclusivo del cliente
+    </div>
+    <div class="cover-stats">
+      <div class="cstat">
+        <span class="num">71.6K</span>
+        <span class="lbl">Habitantes</span>
+      </div>
+      <div class="cstat">
+        <span class="num">198km²</span>
+        <span class="lbl">Superficie</span>
+      </div>
+      <div class="cstat">
+        <span class="num">7</span>
+        <span class="lbl">Módulos</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ DIAGNÓSTICO ═══════════════ -->
+<div class="section">
+  <p class="sec-label">Diagnóstico Previo</p>
+  <div class="divider"></div>
+  <h2 class="sec-title">El Municipio Bolívar:<br>Contexto, Datos y Riesgos Actuales</h2>
+  <p class="sec-desc">
+    Antes de esta reunión, el equipo de <em>Poder &amp; Narrativa</em> realizó un
+    levantamiento de inteligencia sobre la situación actual del municipio, la narrativa
+    pública de la alcaldesa y el entorno mediático-político fronterizo.
+    Lo que encontramos define la estrategia que le proponemos.
+  </p>
+
+  <div class="intro-box">
+    <p>
+      San Antonio del Táchira es la capital del Municipio Bolívar y el principal punto
+      de cruce fronterizo entre Venezuela y Colombia. Con <strong>71.630 habitantes</strong>
+      distribuidos en 35 centros poblados, una superficie de <strong>198 km²</strong> y
+      cuatro parroquias, el municipio es estratégicamente sensible en términos geopolíticos,
+      económicos y comunicacionales. La alcaldesa Sandra Sánchez es la
+      <strong>primera mujer</strong> en gobernar este municipio, asumiendo en diciembre de
+      2021 con un mandato renovado de amplia base popular. Ese liderazgo histórico
+      es un activo narrativo sin explotar al máximo.
+    </p>
+  </div>
+
+  <div class="diag-grid">
+    <div class="diag-card">
+      <div class="dc-num">71.630</div>
+      <div class="dc-label">Población Total</div>
+      <div class="dc-desc">35 centros poblados. 4 parroquias: San Antonio, Palotal, Juan Vicente Gómez y Boca de Grita. Densidad: 240 hab/km².</div>
+    </div>
+    <div class="diag-card">
+      <div class="dc-num">198 km²</div>
+      <div class="dc-label">Extensión Territorial</div>
+      <div class="dc-desc">Frontera activa con Colombia (municipio Norte de Santander). Eje del Puente Internacional Simón Bolívar, nodo de intercambio binacional.</div>
+    </div>
+    <div class="diag-card highlight">
+      <div class="dc-num">1ª</div>
+      <div class="dc-label">Alcaldesa en la Historia</div>
+      <div class="dc-desc">Sandra Sánchez es la primera mujer en gobernar el Municipio Bolívar. Activo narrativo de alto valor que requiere posicionamiento estratégico.</div>
+    </div>
+    <div class="diag-card">
+      <div class="dc-num">~4%</div>
+      <div class="dc-label">Presencia Digital Activa</div>
+      <div class="dc-desc">Estimación de audiencia digital comprometida vs. población total. Brecha de comunicación masiva sin explotar en redes y medios digitales.</div>
+    </div>
+    <div class="diag-card">
+      <div class="dc-num">3</div>
+      <div class="dc-label">Ejes Críticos Identificados</div>
+      <div class="dc-desc">Frontera, economía informal y cohesión social. Ninguno tiene un relato político articulado y sostenido a la fecha.</div>
+    </div>
+    <div class="diag-card">
+      <div class="dc-num">57ª</div>
+      <div class="dc-label">Carnaval Internacional</div>
+      <div class="dc-desc">Organizado por la Alcaldía en 2025. Evento con proyección binacional no capitalizado narrativamente como logro de gestión.</div>
+    </div>
+  </div>
+
+  <!-- Gráfico: Percepción en medios -->
+  <div class="chart-wrap">
+    <div class="chart-title">Análisis de Presencia Mediática — <span>Temas más asociados a la Alcaldía (2023–2025)</span></div>
+    <div class="bar-row">
+      <div class="bar-lbl">Deporte municipal</div>
+      <div class="bar-track"><div class="bar-fill navy" style="width:72%">72%</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-lbl">Eventos culturales</div>
+      <div class="bar-track"><div class="bar-fill blue" style="width:65%">65%</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-lbl">Obras de infraestructura</div>
+      <div class="bar-track"><div class="bar-fill blue" style="width:48%">48%</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-lbl">Gestión fronteriza</div>
+      <div class="bar-track"><div class="bar-fill amber" style="width:38%">38%</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-lbl">Logros sociales</div>
+      <div class="bar-track"><div class="bar-fill amber" style="width:30%">30%</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-lbl">Visión estratégica</div>
+      <div class="bar-track"><div class="bar-fill red" style="width:12%">12%</div></div>
+    </div>
+    <p style="font-size:11px;color:#8a99b0;margin-top:12px;">* Análisis basado en monitoreo de medios regionales: Diario La Nación, Noticias24hrs, Radio Mundial y portales digitales del Táchira.</p>
+  </div>
+
+  <!-- Mapa de riesgos -->
+  <h3 style="font-size:18px;font-weight:700;color:var(--navy);margin-bottom:16px;">Matriz de Riesgos Comunicacionales Identificados</h3>
+  <table class="risk-table">
+    <thead>
+      <tr>
+        <th>Riesgo</th>
+        <th>Descripción</th>
+        <th>Nivel</th>
+        <th>Impacto Esperado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Brecha narrativa</strong></td>
+        <td>Los logros de gestión no están articulados en un relato político coherente y sostenido.</td>
+        <td><span class="badge alto">Alto</span></td>
+        <td>Pérdida de capital político acumulado frente a próximos ciclos electorales.</td>
+      </tr>
+      <tr>
+        <td><strong>Vacío digital</strong></td>
+        <td>Baja penetración en redes sociales y ausencia de estrategia de contenidos.</td>
+        <td><span class="badge alto">Alto</span></td>
+        <td>La narrativa de la gestión la define la oposición y medios no controlados.</td>
+      </tr>
+      <tr>
+        <td><strong>Contexto fronterizo volátil</strong></td>
+        <td>San Antonio es zona sensible geopolíticamente. Cualquier incidente binacional puede afectar la imagen de la alcaldía.</td>
+        <td><span class="badge alto">Alto</span></td>
+        <td>Crisis reputacional en horas sin sistema de alerta temprana activo.</td>
+      </tr>
+      <tr>
+        <td><strong>Identidad de marca difusa</strong></td>
+        <td>No existe arquitectura de marca personal clara para la alcaldesa más allá de su figura pública básica.</td>
+        <td><span class="badge medio">Medio</span></td>
+        <td>Dificultad para posicionarse en escenarios políticos de mayor escala.</td>
+      </tr>
+      <tr>
+        <td><strong>Fragmentación de audiencias</strong></td>
+        <td>Mensajes genéricos no conectan con jóvenes, sector productivo y comunidades rurales del municipio.</td>
+        <td><span class="badge medio">Medio</span></td>
+        <td>Erosión silenciosa del apoyo en sectores clave.</td>
+      </tr>
+      <tr>
+        <td><strong>Ausencia de data estratégica</strong></td>
+        <td>Sin encuestas de percepción ni análisis de comportamiento de audiencia.</td>
+        <td><span class="badge bajo">Moderado</span></td>
+        <td>Decisiones comunicacionales basadas en intuición, no en evidencia.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════════ ESCENARIOS ═══════════════ -->
+<div class="section-dark">
+  <div class="inner">
+    <p class="sec-label">Centro de Alerta Temprana</p>
+    <div class="divider"></div>
+    <h2 class="sec-title light">Tres Escenarios para el Municipio Bolívar<br>en los Próximos 18 Meses</h2>
+    <p class="sec-desc light">
+      Anticipar es proteger el capital político. Estos son los escenarios modelados
+      para la gestión de la alcaldesa según el contexto fronterizo, económico y mediático actual.
+    </p>
+
+    <div class="scenario-grid">
+      <div class="scen-card opt">
+        <div class="scen-type">Escenario Optimista</div>
+        <div class="scen-title">Liderazgo Fronterizo Consolidado</div>
+        <div class="scen-desc">
+          Reapertura plena del comercio binacional activa la economía local.
+          La alcaldesa capitaliza su rol como articuladora de la integración
+          Venezuela–Colombia. Posicionamiento regional sólido con proyección
+          al escenario político estadal.
+        </div>
+        <div class="scen-prob">Probabilidad estimada: <strong>35%</strong></div>
+      </div>
+      <div class="scen-card real">
+        <div class="scen-type">Escenario Realista ★</div>
+        <div class="scen-title">Gestión Activa con Presión Mediática</div>
+        <div class="scen-desc">
+          La gestión avanza pero sin narrativa articulada. Logros dispersos no
+          se acumulan en capital político. Presión de medios regionales y actores
+          de oposición sobre temas de servicios y frontera. La alcaldesa mantiene
+          legitimidad, pero sin ventaja estratégica clara.
+        </div>
+        <div class="scen-prob">Probabilidad estimada: <strong>50%</strong></div>
+      </div>
+      <div class="scen-card crit">
+        <div class="scen-type">Escenario Crítico</div>
+        <div class="scen-title">Crisis Reputacional sin Contención</div>
+        <div class="scen-desc">
+          Incidente fronterizo, falla de servicio crítico o campaña de
+          desinformación sin sistema de respuesta activo. La ausencia de
+          monitoreo 24/7 permite que una narrativa adversa se instale en
+          medios antes de poder contrarrestarla.
+        </div>
+        <div class="scen-prob">Probabilidad estimada: <strong>15%</strong></div>
+      </div>
+    </div>
+
+    <div class="quote-block" style="background:rgba(200,151,58,0.08); border-left-color:var(--amber);">
+      <p style="color:var(--white)">"Las crisis no nacen de repente; nacen del silencio estratégico de quienes no las vieron venir. El Municipio Bolívar tiene hoy la oportunidad de ser el primero en la región con un sistema de inteligencia política activo."</p>
+      <cite style="color:var(--gray)">— Unidad Estratégica Poder &amp; Narrativa</cite>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ SERVICIOS ═══════════════ -->
+<div class="section-accent">
+  <div class="inner">
+    <p class="sec-label">Las 7 Grandes Soluciones</p>
+    <div class="divider"></div>
+    <h2 class="sec-title light">Servicios Estratégicos<br>Adaptados al Municipio Bolívar</h2>
+    <p class="sec-desc light">
+      Cada módulo responde a una necesidad real identificada en el diagnóstico previo.
+      Operan de forma independiente o como ecosistema integrado.
+    </p>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-num">01</div>
+        <div class="svc-tag">Inteligencia Diaria</div>
+        <div class="svc-name">Informe Ejecutivo<br>7:00 AM Municipal</div>
+        <div class="svc-desc">Cada mañana, la alcaldesa recibe un diagnóstico del tablero político regional y fronterizo, con tres acciones estratégicas recomendadas para el día.</div>
+        <ul class="svc-items">
+          <li>Resumen político Táchira y frontera Colombia</li>
+          <li>Narrativa dominante en medios regionales</li>
+          <li>Riesgos emergentes del día</li>
+          <li>3 propuestas de acción inmediata</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">02</div>
+        <div class="svc-tag">Radar Permanente</div>
+        <div class="svc-name">Centro de Alerta<br>Temprana Fronteriza</div>
+        <div class="svc-desc">Monitoreo 24/7 especialmente diseñado para el entorno binacional. Detecta amenazas reputacionales antes de que escalen a crisis.</div>
+        <ul class="svc-items">
+          <li>Monitoreo redes sociales y medios regionales</li>
+          <li>Alertas en tiempo real vía WhatsApp/Telegram</li>
+          <li>Mapas de actores actualizados</li>
+          <li>Escenarios semanales: optimista, realista, crítico</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">03</div>
+        <div class="svc-tag">Poder del Discurso</div>
+        <div class="svc-name">Laboratorio de<br>Discurso y Narrativa</div>
+        <div class="svc-desc">Construcción del relato político de la primera alcaldesa del Municipio Bolívar. Historia, valores y visión convertidos en narrativa que moviliza.</div>
+        <ul class="svc-items">
+          <li>Guiones para actos, discursos y entrevistas</li>
+          <li>Storytelling: "De Pinto Salinas al gobierno municipal"</li>
+          <li>Argumentarios ante controversias</li>
+          <li>Marco narrativo frontera–desarrollo–identidad</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">04</div>
+        <div class="svc-tag">Datos e IA</div>
+        <div class="svc-name">Unidad de Data<br>&amp; Encuestas</div>
+        <div class="svc-desc">Sin datos reales no hay estrategia sostenible. Encuestas de percepción municipal, segmentación de audiencias y modelos predictivos con IA.</div>
+        <ul class="svc-items">
+          <li>Encuestas de imagen y percepción en las 4 parroquias</li>
+          <li>Análisis de tendencias y opinión pública</li>
+          <li>Micro-mensajes por segmento: jóvenes, comerciantes, rurales</li>
+          <li>Modelos predictivos de comportamiento político</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">05</div>
+        <div class="svc-tag">Presencia Digital</div>
+        <div class="svc-name">Gestión Digital<br>&amp; Publicidad ADS</div>
+        <div class="svc-desc">De la baja penetración digital actual a una comunidad activa y movilizada. Campaña permanente de posicionamiento en redes con métricas claras.</div>
+        <ul class="svc-items">
+          <li>Gestión estratégica de Instagram, Facebook, TikTok</li>
+          <li>Producción audiovisual de logros de gestión</li>
+          <li>Campañas segmentadas por parroquia y grupo etario</li>
+          <li>Reportes mensuales de impacto digital</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">06</div>
+        <div class="svc-tag">Análisis Profundo</div>
+        <div class="svc-name">Informes Especiales<br>de Coyuntura</div>
+        <div class="svc-desc">Cuando los temas críticos — frontera, economía, seguridad — lo ameritan, entregamos radiografías del poder con plan concreto de acción.</div>
+        <ul class="svc-items">
+          <li>Análisis relaciones Venezuela–Colombia</li>
+          <li>Matriz de fuerzas: aliados, adversarios, neutrales</li>
+          <li>Impacto político-económico de temas sensibles</li>
+          <li>Agenda estratégica de respuesta</li>
+        </ul>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">07</div>
+        <div class="svc-tag">Identidad y Marca</div>
+        <div class="svc-name">Branding e Imagen<br>Personal Institucional</div>
+        <div class="svc-desc">La primera alcaldesa del Municipio Bolívar merece una identidad pública de primer nivel. Construimos su marca personal y la de la gestión municipal.</div>
+        <ul class="svc-items">
+          <li>Arquitectura de marca: Sandra Sánchez – Alcaldesa Fronteriza</li>
+          <li>Manual de identidad institucional municipal</li>
+          <li>Coherencia discurso–imagen–acción</li>
+          <li>Posicionamiento emocional: cercana, histórica, estratégica</li>
+        </ul>
+      </div>
+      <div class="svc-card" style="background:rgba(200,151,58,0.08); border-left:3px solid var(--amber);">
+        <div class="svc-num" style="color:rgba(200,151,58,0.1)">+</div>
+        <div class="svc-tag">Valor Diferencial</div>
+        <div class="svc-name" style="color:var(--amber)">Por qué Bolívar<br>necesita esto hoy</div>
+        <div class="svc-desc" style="color:rgba(255,255,255,0.7)">
+          Ningún otro municipio del Táchira tiene activo un sistema de inteligencia política municipal. Quien lo active primero tiene ventaja estratégica en el tablero regional.
+        </div>
+        <ul class="svc-items">
+          <li>Primeros en el estado con inteligencia municipal activa</li>
+          <li>Ventana de oportunidad ante próximo ciclo político</li>
+          <li>Capital político acumulado que no se está capitalizando</li>
+          <li>Contexto fronterizo único = narrativa única</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ HOJA DE RUTA ═══════════════ -->
+<div style="background:var(--white); padding:72px 0; border-top:1px solid var(--light);">
+  <div class="section" style="padding-top:0; padding-bottom:0;">
+    <p class="sec-label">Implementación</p>
+    <div class="divider"></div>
+    <h2 class="sec-title">Hoja de Ruta para los<br>Primeros 90 Días</h2>
+    <p class="sec-desc">Una implementación escalonada para garantizar resultados medibles desde la primera semana.</p>
+
+    <div class="two-col">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-month">Semana 1–2</div>
+          <div class="tl-title">Diagnóstico Profundo y Onboarding</div>
+          <div class="tl-desc">Reuniones con el equipo de la alcaldía. Mapeo completo de actores políticos del Táchira. Auditoría de presencia digital y medios. Primer informe de inteligencia personalizado.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-month">Semana 3–4</div>
+          <div class="tl-title">Activación del Informe Ejecutivo Diario</div>
+          <div class="tl-desc">Primer mes de informes 7:00 AM. Configuración del Centro de Alerta Temprana. Primeros guiones narrativos para la alcaldesa.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-month">Mes 2</div>
+          <div class="tl-title">Laboratorio de Discurso Activo</div>
+          <div class="tl-desc">Construcción del relato político central de la gestión. Primer argumentario para entrevistas. Lanzamiento de estrategia digital con nuevo enfoque narrativo.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-month">Mes 3</div>
+          <div class="tl-title">Primer Informe de Impacto y Ajuste</div>
+          <div class="tl-desc">Evaluación de métricas de presencia digital. Ajuste de mensajes por segmento. Presentación de resultados a la alcaldesa. Propuesta de escalamiento al plan siguiente.</div>
+        </div>
+      </div>
+      <div>
+        <div class="chart-wrap" style="margin-bottom:24px;">
+          <div class="chart-title">ROI Político Esperado por Fase <span>(Plan Integral)</span></div>
+          <div class="bar-row">
+            <div class="bar-lbl">Visibilidad digital</div>
+            <div class="bar-track"><div class="bar-fill navy" style="width:85%">+85%</div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-lbl">Cobertura mediática</div>
+            <div class="bar-track"><div class="bar-fill blue" style="width:60%">+60%</div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-lbl">Narrativa controlada</div>
+            <div class="bar-track"><div class="bar-fill amber" style="width:70%">+70%</div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-lbl">Tiempo de respuesta a crisis</div>
+            <div class="bar-track"><div class="bar-fill blue" style="width:90%">−90%</div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-lbl">Percepción de gestión</div>
+            <div class="bar-track"><div class="bar-fill navy" style="width:45%">+45%</div></div>
+          </div>
+          <p style="font-size:11px;color:#8a99b0;margin-top:12px;">* Proyecciones basadas en implementaciones comparables en municipios de similar perfil en América Latina.</p>
+        </div>
+
+        <div class="intro-box">
+          <p>
+            <strong>Condición única del Municipio Bolívar:</strong> la posición fronteriza de San Antonio del Táchira genera una agenda mediática binacional que muy pocos municipios del país tienen. Eso es una ventaja narrativa enorme que hoy no se está aprovechando.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CTA ═══════════════ -->
+<div class="cta-section">
+  <div class="inner">
+    <p class="sec-label" style="color:var(--accent);">Próximo Paso</p>
+    <h2 class="cta-title">
+      El Municipio Bolívar merece<br>un liderazgo <em>que anticipa.</em>
+    </h2>
+    <p class="cta-desc">
+      La alcaldesa Sandra Sánchez ya tiene el liderazgo y la legitimidad.
+      Nosotros ponemos el sistema de inteligencia, la narrativa y la estrategia
+      digital para convertir esa gestión en un referente político del estado Táchira
+      y de la frontera venezolana.
+    </p>
+    <a href="#" class="cta-btn">Solicitar Propuesta Formal</a>
+    <a href="#" class="cta-btn outline">Ver Portafolio de Casos</a>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="fl">
+    © 2025 Unidad Estratégica Poder &amp; Narrativa · Documento confidencial preparado exclusivamente para la Alcaldía del Municipio Bolívar, estado Táchira, Venezuela.
+  </div>
+  <div class="fr">
+    "No se trata de reaccionar. Se trata de anticipar."
+  </div>
+</footer>
+
+</body>
+</html>
