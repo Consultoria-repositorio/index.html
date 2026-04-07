@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centro de Noticias | Municipio Bolívar</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:    #0a1628;
+    --navy2:   #0d1f3c;
+    --blue:    #1a3a6b;
+    --accent:  #c8973a;
+    --amber:   #e0a94b;
+    --red:     #b83232;
+    --white:   #ffffff;
+    --gray:    #8a99b0;
+    --light:   #d6dde8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--navy);
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--white);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: #06101e;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .topbar-back {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--gray);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 6px 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .topbar-back:hover { color: var(--accent); }
+  .topbar-back svg { flex-shrink: 0; }
+  .topbar-sep {
+    width: 1px;
+    height: 20px;
+    background: rgba(255,255,255,0.1);
+  }
+  .topbar-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .topbar-tag {
+    background: var(--accent);
+    color: var(--navy);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    background: var(--navy2);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 40px 40px 32px;
+  }
+  .page-header .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .ph-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .ph-divider {
+    width: 40px;
+    height: 3px;
+    background: var(--accent);
+    margin-bottom: 16px;
+  }
+  .ph-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3.5vw, 40px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .ph-sub {
+    font-size: 13.5px;
+    color: var(--gray);
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  /* ── WEEK SELECTOR ── */
+  .week-selector-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .ws-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+  .week-selector {
+    appearance: none;
+    -webkit-appearance: none;
+    background: #0b1a2e url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a99b0' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 10px 40px 10px 16px;
+    border-radius: 2px;
+    cursor: pointer;
+    min-width: 220px;
+    transition: border-color 0.2s;
+  }
+  .week-selector:hover,
+  .week-selector:focus { border-color: var(--accent); outline: none; }
+  .week-selector option { background: #0d1f3c; }
+
+  /* ── CONTROLS BAR ── */
+  .controls-bar {
+    background: #08131f;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 0 40px;
+  }
+  .controls-bar .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 0;
+    flex-wrap: wrap;
+  }
+  .cb-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-right: 4px;
+    white-space: nowrap;
+  }
+  .filter-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--gray);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+    white-space: nowrap;
+  }
+  .filter-btn:hover { border-color: rgba(200,151,58,0.5); color: var(--accent); }
+  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: var(--navy); }
+
+  /* count badge on filters */
+  .filter-btn .fc { opacity: 0.6; margin-left: 4px; font-size: 9px; }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 36px 40px 64px;
+  }
+
+  /* week context strip */
+  .week-context {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .wc-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .wc-heading span { color: var(--accent); }
+  .wc-count {
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 1px;
+  }
+
+  /* ── NEWS GRID ── */
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .news-card {
+    background: #0b1a2e;
+    padding: 26px 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    position: relative;
+    transition: background 0.18s;
+    overflow: hidden;
+  }
+  .news-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--accent);
+    transition: width 0.28s ease;
+  }
+  .news-card:hover { background: #0e2040; }
+  .news-card:hover::after { width: 100%; }
+
+  /* category badge */
+  .news-cat {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 2px;
+    align-self: flex-start;
+  }
+  .news-cat.seguridad { background: rgba(184,50,50,0.2);  color: #ff7b7b; }
+  .news-cat.economia  { background: rgba(224,169,75,0.15); color: var(--amber); }
+  .news-cat.politica  { background: rgba(26,58,107,0.55); color: #7aadff; border: 1px solid rgba(122,173,255,0.18); }
+  .news-cat.social    { background: rgba(46,125,50,0.2);  color: #6fcf7f; }
+
+  .news-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.35;
+    flex: 1;
+  }
+
+  .news-summary {
+    font-size: 12px;
+    color: rgba(255,255,255,0.48);
+    line-height: 1.65;
+  }
+
+  .news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 11px;
+    margin-top: auto;
+    gap: 8px;
+  }
+  .news-source {
+    font-size: 10px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .news-date {
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── EMPTY / ERROR / LOADING ── */
+  .state-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 64px 20px;
+    color: var(--gray);
+    font-size: 14px;
+  }
+  .state-message .icon {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 14px;
+    opacity: 0.35;
+  }
+
+  /* skeleton */
+  .skel-card {
+    background: rgba(255,255,255,0.03);
+    padding: 26px 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .skel-line {
+    background: rgba(255,255,255,0.07);
+    border-radius: 2px;
+    animation: pulse 1.3s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #06101e;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .fl { font-size: 11px; color: rgba(255,255,255,0.2); }
+  .fr { font-family: 'Playfair Display', serif; font-size: 13px; color: var(--accent); font-style: italic; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .news-grid { grid-template-columns: 1fr 1fr; }
+    .page-header .inner { flex-direction: column; align-items: flex-start; }
+    .week-selector-wrap { align-items: flex-start; }
+  }
+  @media (max-width: 580px) {
+    .topbar, .controls-bar, .page-header, .main, footer { padding-left: 20px; padding-right: 20px; }
+    .news-grid { grid-template-columns: 1fr; }
+    .controls-bar .inner { padding-left: 0; padding-right: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── TOPBAR ── -->
+<nav class="topbar">
+  <div class="topbar-brand">
+    <a href="index.html" class="topbar-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Volver
+    </a>
+    <div class="topbar-sep"></div>
+    <span class="topbar-title">Centro de Noticias</span>
+  </div>
+  <span class="topbar-tag">Monitoreo de Medios</span>
+</nav>
+
+<!-- ── PAGE HEADER ── -->
+<header class="page-header">
+  <div class="inner">
+    <div>
+      <p class="ph-label">Municipio Bolívar · Táchira</p>
+      <div class="ph-divider"></div>
+      <h1 class="ph-title">Centro de Noticias</h1>
+      <p class="ph-sub">Agenda informativa local, regional y fronteriza organizada por semana. Edita <code style="color:var(--accent);font-size:12px;">data/semanas.json</code> para agregar períodos.</p>
+    </div>
+    <div class="week-selector-wrap">
+      <span class="ws-label">Período</span>
+      <select class="week-selector" id="weekSelect" aria-label="Seleccionar semana">
+        <option value="">Cargando semanas…</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<!-- ── CONTROLS: CATEGORY FILTERS ── -->
+<div class="controls-bar">
+  <div class="inner" id="filterBar">
+    <span class="cb-label">Categoría</span>
+    <button class="filter-btn active" data-cat="todos">Todos</button>
+    <button class="filter-btn" data-cat="Seguridad">Seguridad</button>
+    <button class="filter-btn" data-cat="Economía">Economía</button>
+    <button class="filter-btn" data-cat="Política">Política</button>
+    <button class="filter-btn" data-cat="Social">Social</button>
+  </div>
+</div>
+
+<!-- ── MAIN ── -->
+<main class="main">
+  <div class="week-context" id="weekContext" style="display:none;">
+    <div class="wc-heading">Semana <span id="weekLabel">—</span></div>
+    <div class="wc-count" id="weekCount"></div>
+  </div>
+  <div class="news-grid" id="newsGrid">
+    <!-- skeletons -->
+    <div class="skel-card"><div class="skel-line" style="width:55px;height:18px;"></div><div class="skel-line" style="width:90%;height:14px;"></div><div class="skel-line" style="width:72%;height:14px;"></div><div class="skel-line" style="width:100%;height:10px;margin-top:6px;"></div><div class="skel-line" style="width:80%;height:10px;"></div></div>
+    <div class="skel-card"><div class="skel-line" style="width:55px;height:18px;"></div><div class="skel-line" style="width:85%;height:14px;"></div><div class="skel-line" style="width:65%;height:14px;"></div><div class="skel-line" style="width:100%;height:10px;margin-top:6px;"></div><div class="skel-line" style="width:60%;height:10px;"></div></div>
+    <div class="skel-card"><div class="skel-line" style="width:55px;height:18px;"></div><div class="skel-line" style="width:93%;height:14px;"></div><div class="skel-line" style="width:78%;height:14px;"></div><div class="skel-line" style="width:100%;height:10px;margin-top:6px;"></div><div class="skel-line" style="width:70%;height:10px;"></div></div>
+  </div>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="fl">© 2026 Unidad Estratégica Poder &amp; Narrativa · Municipio Bolívar, Táchira, Venezuela</div>
+  <div class="fr">"No se trata de reaccionar. Se trata de anticipar."</div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var grid       = document.getElementById('newsGrid');
+  var weekSelect = document.getElementById('weekSelect');
+  var filterBar  = document.getElementById('filterBar');
+  var weekCtx    = document.getElementById('weekContext');
+  var weekLabel  = document.getElementById('weekLabel');
+  var weekCount  = document.getElementById('weekCount');
+
+  var allNews  = [];
+  var activeCat = 'todos';
+
+  /* ─ Helpers ─ */
+  var MONTHS = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+
+  function fmtDate(iso) {
+    if (!iso) return '';
+    var p = iso.split('-');
+    return parseInt(p[2], 10) + ' ' + MONTHS[parseInt(p[1], 10) - 1] + ' ' + p[0];
+  }
+
+  function catClass(cat) {
+    var map = { 'Seguridad': 'seguridad', 'Economía': 'economia', 'Política': 'politica', 'Social': 'social' };
+    return map[cat] || cat.toLowerCase();
+  }
+
+  function esc(s) {
+    return String(s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;');
+  }
+
+  /* ─ Count per category ─ */
+  function countsByCat(lista) {
+    var counts = {};
+    lista.forEach(function (n) { counts[n.categoria] = (counts[n.categoria] || 0) + 1; });
+    return counts;
+  }
+
+  /* ─ Update filter button counts ─ */
+  function updateCounts(lista) {
+    var counts = countsByCat(lista);
+    filterBar.querySelectorAll('.filter-btn').forEach(function (btn) {
+      var cat = btn.dataset.cat;
+      var existing = btn.querySelector('.fc');
+      if (existing) existing.remove();
+      var n = cat === 'todos' ? lista.length : (counts[cat] || 0);
+      if (n > 0) {
+        var badge = document.createElement('span');
+        badge.className = 'fc';
+        badge.textContent = n;
+        btn.appendChild(badge);
+      }
+    });
+  }
+
+  /* ─ Render cards ─ */
+  function render(lista) {
+    if (!lista.length) {
+      grid.innerHTML = '<div class="state-message"><span class="icon">—</span>No hay noticias en esta categoría para la semana seleccionada.</div>';
+      return;
+    }
+    grid.innerHTML = lista.map(function (n) {
+      return '<div class="news-card">' +
+        '<span class="news-cat ' + catClass(n.categoria) + '">' + esc(n.categoria) + '</span>' +
+        '<div class="news-title">' + esc(n.titulo) + '</div>' +
+        '<div class="news-summary">' + esc(n.resumen) + '</div>' +
+        '<div class="news-meta">' +
+          '<span class="news-source">' + esc(n.fuente) + '</span>' +
+          '<span class="news-date">' + fmtDate(n.fecha) + '</span>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  /* ─ Apply active filter ─ */
+  function applyFilter() {
+    var filtered = activeCat === 'todos'
+      ? allNews
+      : allNews.filter(function (n) { return n.categoria === activeCat; });
+    render(filtered);
+    weekCount.textContent = filtered.length + ' noticia' + (filtered.length !== 1 ? 's' : '');
+  }
+
+  /* ─ Load a week file ─ */
+  function loadWeek(fecha) {
+    grid.innerHTML =
+      '<div class="skel-card"><div class="skel-line" style="width:55px;height:18px;"></div><div class="skel-line" style="width:90%;height:14px;"></div><div class="skel-line" style="width:72%;height:14px;"></div><div class="skel-line" style="width:100%;height:10px;margin-top:6px;"></div><div class="skel-line" style="width:80%;height:10px;"></div></div>' +
+      '<div class="skel-card"><div class="skel-line" style="width:55px;height:18px;"></div><div class="skel-line" style="width:85%;height:14px;"></div><div class="skel-line" style="width:65%;height:14px;"></div><div class="skel-line" style="width:100%;height:10px;margin-top:6px;"></div><div class="skel-line" style="width:60%;height:10px;"></div></div>' +
+      '<div class="skel-card"><div class="skel-line" style="width:55px;height:18px;"></div><div class="skel-line" style="width:93%;height:14px;"></div><div class="skel-line" style="width:78%;height:14px;"></div><div class="skel-line" style="width:100%;height:10px;margin-top:6px;"></div><div class="skel-line" style="width:70%;height:10px;"></div></div>';
+
+    fetch('data/semana-' + fecha + '.json?v=' + Date.now())
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        allNews = Array.isArray(data.noticias) ? data.noticias : [];
+        allNews.sort(function (a, b) { return (b.fecha || '').localeCompare(a.fecha || ''); });
+
+        weekLabel.textContent = data.label || fecha;
+        weekCtx.style.display = '';
+        updateCounts(allNews);
+        applyFilter();
+      })
+      .catch(function (err) {
+        allNews = [];
+        weekCtx.style.display = 'none';
+        grid.innerHTML = '<div class="state-message"><span class="icon">!</span>No se pudo cargar el archivo de la semana.<br><small style="opacity:.5;">' + err.message + '</small></div>';
+      });
+  }
+
+  /* ─ Filter buttons ─ */
+  filterBar.addEventListener('click', function (e) {
+    var btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    filterBar.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    activeCat = btn.dataset.cat;
+    applyFilter();
+  });
+
+  /* ─ Week selector change ─ */
+  weekSelect.addEventListener('change', function () {
+    if (weekSelect.value) loadWeek(weekSelect.value);
+  });
+
+  /* ─ Bootstrap: load semanas.json manifest ─ */
+  fetch('data/semanas.json?v=' + Date.now())
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      var semanas = Array.isArray(data.semanas) ? data.semanas : [];
+      if (!semanas.length) throw new Error('No hay semanas registradas en semanas.json');
+
+      weekSelect.innerHTML = semanas.map(function (s) {
+        return '<option value="' + esc(s.fecha) + '">Semana ' + esc(s.label) + '</option>';
+      }).join('');
+
+      /* auto-load most recent (first in array) */
+      loadWeek(semanas[0].fecha);
+    })
+    .catch(function (err) {
+      weekSelect.innerHTML = '<option value="">Error al cargar semanas</option>';
+      grid.innerHTML = '<div class="state-message"><span class="icon">!</span>No se pudo cargar <code>data/semanas.json</code>.<br><small style="opacity:.5;">' + err.message + '</small></div>';
+    });
+
+}());
+</script>
+</body>
+</html>
