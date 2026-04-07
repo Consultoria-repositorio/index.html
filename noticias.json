@@ -1,0 +1,100 @@
+{
+  "noticias": [
+    {
+      "id": 1,
+      "titulo": "Gobierno Municipal refuerza patrullaje en zona fronteriza de San Antonio",
+      "fecha": "2026-04-06",
+      "fuente": "El Táchira Digital",
+      "resumen": "La alcaldía del Municipio Bolívar desplegó 40 efectivos adicionales en los principales puntos de acceso fronterizo tras el incremento de incidentes reportados en el sector durante las últimas semanas.",
+      "categoria": "Seguridad"
+    },
+    {
+      "id": 2,
+      "titulo": "Cámara de Comercio advierte sobre impacto del tipo de cambio en comercio binacional",
+      "fecha": "2026-04-05",
+      "fuente": "Frontera Económica",
+      "resumen": "Empresarios locales alertan que la brecha cambiaria entre el bolívar y el peso colombiano está afectando la competitividad del comercio en San Antonio del Táchira, exigiendo políticas de estabilización urgentes.",
+      "categoria": "Economía"
+    },
+    {
+      "id": 3,
+      "titulo": "Alcaldesa Sánchez anuncia plan de pavimentación para 12 sectores del municipio",
+      "fecha": "2026-04-04",
+      "fuente": "Alcaldía Municipio Bolívar",
+      "resumen": "En cadena local, la alcaldesa Sandra Sánchez presentó el Plan Vial 2026 con una inversión estimada de 4.2 millones de dólares. Las obras iniciarán en los sectores con mayor índice de deterioro vial.",
+      "categoria": "Política"
+    },
+    {
+      "id": 4,
+      "titulo": "Comunidades del sector La Ermita exigen solución a crisis de agua potable",
+      "fecha": "2026-04-04",
+      "fuente": "Radio Táchira",
+      "resumen": "Vecinos de La Ermita llevan más de 15 días sin servicio continuo de agua. Protestas pacíficas frente a la sede de Hidrosuroeste demandan respuesta inmediata de las autoridades municipales.",
+      "categoria": "Social"
+    },
+    {
+      "id": 5,
+      "titulo": "Banda armada desarticulada en operativo conjunto en zona rural de Bolívar",
+      "fecha": "2026-04-03",
+      "fuente": "Noticias Tachira 24",
+      "resumen": "Fuerzas de seguridad capturaron a 7 integrantes de una red de extorsión que operaba en fincas y negocios del área rural. El operativo fue coordinado entre la alcaldía, GNB y CICPC.",
+      "categoria": "Seguridad"
+    },
+    {
+      "id": 6,
+      "titulo": "Mercado municipal registra aumento del 18% en precios de productos básicos",
+      "fecha": "2026-04-03",
+      "fuente": "El Diario del Táchira",
+      "resumen": "Monitoreo de precios realizado por la Contraloría Municipal revela alzas significativas en rubros como harina, aceite y proteína animal. La alcaldía evalúa activar mesas de regulación de precios.",
+      "categoria": "Economía"
+    },
+    {
+      "id": 7,
+      "titulo": "Consejo Municipal aprueba presupuesto extraordinario para infraestructura escolar",
+      "fecha": "2026-04-02",
+      "fuente": "Asamblea Táchira Online",
+      "resumen": "Con 8 votos a favor y 2 en contra, el Concejo Municipal aprobó una partida de 1.8 millones de dólares para la rehabilitación de 6 planteles educativos del municipio deteriorados por las lluvias.",
+      "categoria": "Política"
+    },
+    {
+      "id": 8,
+      "titulo": "Programa Nutrir Bolívar beneficia a 2.400 niños en comedores comunitarios",
+      "fecha": "2026-04-02",
+      "fuente": "Alcaldía Municipio Bolívar",
+      "resumen": "El programa de alimentación escolar de la alcaldía amplió su cobertura a 18 comunidades. Las madres coordinadoras recibieron dotación de equipos e insumos para garantizar la continuidad del servicio.",
+      "categoria": "Social"
+    },
+    {
+      "id": 9,
+      "titulo": "Venezuela y Colombia retoman mesa de trabajo sobre seguridad fronteriza",
+      "fecha": "2026-04-01",
+      "fuente": "Cancillería Venezuela",
+      "resumen": "Representantes de ambos países se reunieron en Cúcuta para activar protocolos de cooperación en control de pasos ilegales. Municipio Bolívar participará como municipio piloto del modelo binacional.",
+      "categoria": "Seguridad"
+    },
+    {
+      "id": 10,
+      "titulo": "Feria de empleo local convoca a más de 600 postulantes en primer día",
+      "fecha": "2026-03-31",
+      "fuente": "Empleo Táchira",
+      "resumen": "La II Feria de Empleo Municipal organizada por la alcaldía reunió a 34 empresas locales y binacionales. Más de 600 personas asistieron el primer día en busca de oportunidades laborales formales.",
+      "categoria": "Social"
+    },
+    {
+      "id": 11,
+      "titulo": "Sector petrolero venezolano impacta positivamente producción regional",
+      "fecha": "2026-03-30",
+      "fuente": "Economía Hoy Venezuela",
+      "resumen": "La recuperación gradual de la producción petrolera genera efectos positivos en la economía de los estados fronterizos. Táchira reporta leve crecimiento en actividad comercial y servicios.",
+      "categoria": "Economía"
+    },
+    {
+      "id": 12,
+      "titulo": "Alcaldesa recibe reconocimiento nacional por gestión en municipios fronterizos",
+      "fecha": "2026-03-29",
+      "fuente": "CONATEL Noticias",
+      "resumen": "Sandra Sánchez fue distinguida por la Federación de Alcaldes de Venezuela como una de las 5 gestiones municipales más destacadas del año en la categoría de municipios fronterizos en desarrollo.",
+      "categoria": "Política"
+    }
+  ]
+}

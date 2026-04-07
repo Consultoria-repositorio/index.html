@@ -620,6 +620,176 @@
   }
   .scen-prob strong { color:var(--amber); }
 
+  /* ── NOTICIAS MODULE ── */
+  .news-section {
+    background: var(--navy2);
+    padding: 72px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .news-section .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* Filters */
+  .news-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .news-filter-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--gray);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .news-filter-btn:hover {
+    border-color: rgba(200,151,58,0.5);
+    color: var(--accent);
+  }
+  .news-filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--navy);
+  }
+
+  /* Grid */
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  /* Card */
+  .news-card {
+    background: #0b1a2e;
+    padding: 28px 26px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    transition: background 0.2s;
+    overflow: hidden;
+  }
+  .news-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  .news-card:hover { background: #0e2040; }
+  .news-card:hover::after { width: 100%; }
+
+  /* Category badge */
+  .news-cat {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 2px;
+    align-self: flex-start;
+  }
+  .news-cat.seguridad  { background: rgba(184,50,50,0.2);  color: #ff7b7b; }
+  .news-cat.economia   { background: rgba(224,169,75,0.15); color: var(--amber); }
+  .news-cat.politica   { background: rgba(26,58,107,0.6);  color: #7aadff; border: 1px solid rgba(122,173,255,0.2); }
+  .news-cat.social     { background: rgba(46,125,50,0.2);  color: #6fcf7f; }
+
+  .news-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.35;
+    flex: 1;
+  }
+
+  .news-summary {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+  }
+
+  .news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 12px;
+    margin-top: auto;
+    gap: 8px;
+  }
+  .news-source {
+    font-size: 10.5px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .news-date {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Empty / error state */
+  .news-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray);
+    font-size: 14px;
+  }
+  .news-empty span {
+    display: block;
+    font-size: 28px;
+    margin-bottom: 12px;
+    opacity: 0.4;
+  }
+
+  /* Loading skeleton */
+  .news-skeleton {
+    background: rgba(255,255,255,0.04);
+    padding: 28px 26px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .skel-line {
+    background: rgba(255,255,255,0.07);
+    border-radius: 2px;
+    animation: skel-pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes skel-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+  }
+
+  @media (max-width: 900px) {
+    .news-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 580px) {
+    .news-grid { grid-template-columns: 1fr; }
+    .news-filters { gap: 6px; }
+  }
+
   /* ── CTA ── */
   .cta-section {
     background:var(--navy);
@@ -1184,6 +1354,131 @@
     </div>
   </div>
 </div>
+
+<!-- ═══════════════ NOTICIAS ═══════════════ -->
+<div class="news-section" id="noticias">
+  <div class="inner">
+    <p class="sec-label">Monitoreo de Medios</p>
+    <div class="divider"></div>
+    <h2 class="sec-title light">Centro de Noticias<br>Municipio Bolívar</h2>
+    <p class="sec-desc light">Seguimiento en tiempo real de la agenda informativa local, regional y fronteriza que impacta la gestión municipal.</p>
+
+    <!-- Filtros -->
+    <div class="news-filters" id="newsFilters">
+      <button class="news-filter-btn active" data-cat="todos">Todos</button>
+      <button class="news-filter-btn" data-cat="Seguridad">Seguridad</button>
+      <button class="news-filter-btn" data-cat="Economía">Economía</button>
+      <button class="news-filter-btn" data-cat="Política">Política</button>
+      <button class="news-filter-btn" data-cat="Social">Social</button>
+    </div>
+
+    <!-- Grilla de noticias -->
+    <div class="news-grid" id="newsGrid">
+      <!-- Skeletons mientras carga -->
+      <div class="news-skeleton">
+        <div class="skel-line" style="width:60px;height:18px;"></div>
+        <div class="skel-line" style="width:90%;height:14px;"></div>
+        <div class="skel-line" style="width:75%;height:14px;"></div>
+        <div class="skel-line" style="width:100%;height:10px;margin-top:4px;"></div>
+        <div class="skel-line" style="width:85%;height:10px;"></div>
+      </div>
+      <div class="news-skeleton">
+        <div class="skel-line" style="width:60px;height:18px;"></div>
+        <div class="skel-line" style="width:85%;height:14px;"></div>
+        <div class="skel-line" style="width:70%;height:14px;"></div>
+        <div class="skel-line" style="width:100%;height:10px;margin-top:4px;"></div>
+        <div class="skel-line" style="width:60%;height:10px;"></div>
+      </div>
+      <div class="news-skeleton">
+        <div class="skel-line" style="width:60px;height:18px;"></div>
+        <div class="skel-line" style="width:95%;height:14px;"></div>
+        <div class="skel-line" style="width:80%;height:14px;"></div>
+        <div class="skel-line" style="width:100%;height:10px;margin-top:4px;"></div>
+        <div class="skel-line" style="width:70%;height:10px;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  const grid    = document.getElementById('newsGrid');
+  const filters = document.getElementById('newsFilters');
+  let allNews   = [];
+  let activecat = 'todos';
+
+  /* ── Formato de fecha ── */
+  function fmtDate(iso) {
+    if (!iso) return '';
+    const [y, m, d] = iso.split('-');
+    const months = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+    return `${parseInt(d, 10)} ${months[parseInt(m, 10) - 1]} ${y}`;
+  }
+
+  /* ── Normaliza categoría para clase CSS ── */
+  function catClass(cat) {
+    const map = { 'Seguridad': 'seguridad', 'Economía': 'economia', 'Política': 'politica', 'Social': 'social' };
+    return map[cat] || cat.toLowerCase();
+  }
+
+  /* ── Renderiza tarjetas ── */
+  function render(lista) {
+    if (!lista.length) {
+      grid.innerHTML = '<div class="news-empty"><span>—</span>No hay noticias en esta categoría.</div>';
+      return;
+    }
+    grid.innerHTML = lista.map(function (n) {
+      return [
+        '<div class="news-card">',
+          '<span class="news-cat ' + catClass(n.categoria) + '">' + n.categoria + '</span>',
+          '<div class="news-title">' + n.titulo + '</div>',
+          '<div class="news-summary">' + n.resumen + '</div>',
+          '<div class="news-meta">',
+            '<span class="news-source">' + n.fuente + '</span>',
+            '<span class="news-date">' + fmtDate(n.fecha) + '</span>',
+          '</div>',
+        '</div>'
+      ].join('');
+    }).join('');
+  }
+
+  /* ── Aplica filtro activo ── */
+  function applyFilter() {
+    const filtered = activecat === 'todos'
+      ? allNews
+      : allNews.filter(function (n) { return n.categoria === activecat; });
+    render(filtered);
+  }
+
+  /* ── Eventos de filtro ── */
+  filters.addEventListener('click', function (e) {
+    const btn = e.target.closest('.news-filter-btn');
+    if (!btn) return;
+    filters.querySelectorAll('.news-filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    activecat = btn.dataset.cat;
+    applyFilter();
+  });
+
+  /* ── Carga noticias.json ── */
+  fetch('noticias.json?v=' + Date.now())
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      allNews = Array.isArray(data.noticias) ? data.noticias : [];
+      /* Ordenar por fecha descendente */
+      allNews.sort(function (a, b) { return (b.fecha || '').localeCompare(a.fecha || ''); });
+      applyFilter();
+    })
+    .catch(function (err) {
+      grid.innerHTML = '<div class="news-empty"><span>!</span>No se pudo cargar noticias.json. ' + err.message + '</div>';
+    });
+}());
+</script>
 
 <!-- ═══════════════ CTA ═══════════════ -->
 <div class="cta-section">
