@@ -327,6 +327,28 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
+  .news-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid rgba(200,151,58,0.3);
+    padding: 5px 11px;
+    border-radius: 2px;
+    align-self: flex-start;
+    transition: background 0.18s, border-color 0.18s, color 0.18s;
+  }
+  .news-link:hover {
+    background: rgba(200,151,58,0.1);
+    border-color: rgba(200,151,58,0.7);
+  }
+  .news-link svg { flex-shrink: 0; }
 
   /* ── EMPTY / ERROR / LOADING ── */
   .state-message {
@@ -517,10 +539,19 @@
       return;
     }
     grid.innerHTML = lista.map(function (n) {
+      var linkBtn = n.url
+        ? '<a class="news-link" href="' + esc(n.url) + '" target="_blank" rel="noopener noreferrer">' +
+            'Ver nota' +
+            '<svg width="10" height="10" viewBox="0 0 10 10" fill="none">' +
+              '<path d="M1.5 8.5l7-7M4 1.5h4.5V6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '</svg>' +
+          '</a>'
+        : '';
       return '<div class="news-card">' +
         '<span class="news-cat ' + catClass(n.categoria) + '">' + esc(n.categoria) + '</span>' +
         '<div class="news-title">' + esc(n.titulo) + '</div>' +
         '<div class="news-summary">' + esc(n.resumen) + '</div>' +
+        linkBtn +
         '<div class="news-meta">' +
           '<span class="news-source">' + esc(n.fuente) + '</span>' +
           '<span class="news-date">' + fmtDate(n.fecha) + '</span>' +
