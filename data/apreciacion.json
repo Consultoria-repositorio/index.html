@@ -1,0 +1,154 @@
+{
+  "generado": "2026-06-03T06:00:00Z",
+  "modelo": "semilla-manual",
+  "sujeto": "Freddy Bernal — Gobernador del estado Táchira",
+  "resumen_ejecutivo": "Apreciación inicial de referencia (semilla). La posición externa de Freddy Bernal se sostiene sobre su control del aparato de seguridad fronteriza y su alineación con el poder central, pero queda expuesta a la volatilidad binacional Venezuela–Colombia, a las dinámicas de la economía fronteriza y a la competencia política regional en el occidente del país. Este documento será reemplazado automáticamente cada semana por el análisis generado vía la API de Claude.",
+  "nivel_global": "elevado",
+  "tendencia_global": "estable",
+  "entornos": [
+    {
+      "id": "venezuela",
+      "nombre": "Venezuela (Nacional)",
+      "icono": "🇻🇪",
+      "resumen": "A escala nacional, Bernal mantiene capital político por su cercanía al núcleo de poder y su rol histórico en seguridad y en los programas sociales. Su exposición depende de la estabilidad de las alianzas internas del oficialismo y de la presión internacional sobre el país.",
+      "nivel": "elevado",
+      "tendencia": "estable",
+      "factores_clave": [
+        "Alineación con el poder central como activo principal de su posición.",
+        "Rol en seguridad y programas sociales le da peso institucional.",
+        "Vulnerable a reacomodos internos de las facciones del oficialismo.",
+        "Presión internacional y sanciones condicionan el margen de maniobra."
+      ],
+      "alertas": [
+        {
+          "id": "ven-001",
+          "severidad": "media",
+          "titulo": "Reacomodos internos del oficialismo",
+          "descripcion": "Cualquier reorganización de cuotas de poder a nivel nacional puede afectar el respaldo central a la gobernación del Táchira. Requiere monitoreo de señales desde Miraflores.",
+          "fecha": "2026-06-03",
+          "fuentes": []
+        }
+      ]
+    },
+    {
+      "id": "colombia",
+      "nombre": "Colombia (Binacional)",
+      "icono": "🇨🇴",
+      "resumen": "La relación bilateral define buena parte de la agenda de Bernal por su rol fronterizo. La normalización con Bogotá abre oportunidades de cooperación, pero las tensiones por seguridad, contrabando y grupos armados irregulares mantienen un riesgo latente alto.",
+      "nivel": "elevado",
+      "tendencia": "estable",
+      "factores_clave": [
+        "Normalización diplomática habilita cooperación comercial y consular.",
+        "Presencia de grupos armados irregulares en la zona de frontera.",
+        "Comercio binacional sensible a la política cambiaria y aduanera.",
+        "La agenda de seguridad fronteriza es eje de su perfil público."
+      ],
+      "alertas": [
+        {
+          "id": "col-001",
+          "severidad": "alta",
+          "titulo": "Volatilidad de la agenda binacional de seguridad",
+          "descripcion": "Las decisiones de Bogotá sobre frontera y grupos armados impactan directamente la gestión de Bernal. Un deterioro súbito de la relación elevaría la presión sobre el Táchira.",
+          "fecha": "2026-06-03",
+          "fuentes": []
+        }
+      ]
+    },
+    {
+      "id": "norte_santander",
+      "nombre": "Norte de Santander",
+      "icono": "🟧",
+      "resumen": "El departamento colombiano fronterizo (Cúcuta) es el espejo territorial directo del Táchira. La situación de orden público, los flujos migratorios y la economía de Cúcuta repercuten de inmediato en la gestión fronteriza venezolana.",
+      "nivel": "elevado",
+      "tendencia": "ascendente",
+      "factores_clave": [
+        "Cúcuta concentra el comercio y la migración pendular fronteriza.",
+        "Disputas territoriales de grupos armados en la región del Catatumbo.",
+        "Coordinación intermitente entre autoridades locales de ambos lados.",
+        "Flujos migratorios sensibles a shocks económicos y de seguridad."
+      ],
+      "alertas": [
+        {
+          "id": "nsa-001",
+          "severidad": "alta",
+          "titulo": "Tensión de orden público en el Catatumbo",
+          "descripcion": "El conflicto armado en el lado colombiano puede desbordarse hacia los pasos del Táchira, exigiendo respuesta de seguridad y exponiendo a Bernal a crisis humanitarias.",
+          "fecha": "2026-06-03",
+          "fuentes": []
+        }
+      ]
+    },
+    {
+      "id": "san_cristobal",
+      "nombre": "San Cristóbal",
+      "icono": "🏙️",
+      "resumen": "La capital del Táchira es el principal escenario de competencia política y de percepción de gestión. El desempeño en servicios públicos, seguridad urbana y relación con sectores económicos de San Cristóbal condiciona la legitimidad local de Bernal.",
+      "nivel": "moderado",
+      "tendencia": "estable",
+      "factores_clave": [
+        "Centro de gravedad de la opinión pública del estado.",
+        "Servicios públicos y seguridad urbana como termómetro de gestión.",
+        "Presencia de liderazgos opositores y gremiales activos.",
+        "Espacio clave para la narrativa de obras y resultados."
+      ],
+      "alertas": [
+        {
+          "id": "scr-001",
+          "severidad": "media",
+          "titulo": "Presión por servicios públicos en la capital",
+          "descripcion": "Fallas en servicios básicos en San Cristóbal se traducen rápido en costo político. Conviene anticipar con comunicación de gestión y respuestas visibles.",
+          "fecha": "2026-06-03",
+          "fuentes": []
+        }
+      ]
+    },
+    {
+      "id": "tachira",
+      "nombre": "Táchira (Estado)",
+      "icono": "📍",
+      "resumen": "Como base territorial de poder, el estado Táchira es el activo central de Bernal. El control del aparato de seguridad, la relación con los municipios y la gestión de la economía fronteriza sostienen su posición, pero la heterogeneidad municipal genera focos de tensión.",
+      "nivel": "moderado",
+      "tendencia": "estable",
+      "factores_clave": [
+        "Base territorial y aparato de seguridad bajo su conducción.",
+        "Red de alcaldías con grados variables de alineación.",
+        "Economía fronteriza como fuente de recursos y de conflicto.",
+        "Capacidad de articular gestión estadal con prioridades nacionales."
+      ],
+      "alertas": [
+        {
+          "id": "tac-001",
+          "severidad": "baja",
+          "titulo": "Heterogeneidad política municipal",
+          "descripcion": "Las diferencias de alineación entre municipios pueden fragmentar la gobernabilidad. Mantener cohesión con las alcaldías reduce el riesgo.",
+          "fecha": "2026-06-03",
+          "fuentes": []
+        }
+      ]
+    },
+    {
+      "id": "region_occidental",
+      "nombre": "Región Occidental",
+      "icono": "🗺️",
+      "resumen": "En el occidente (Zulia, Mérida, Trujillo, Barinas, Apure) Bernal compite y coopera con otros liderazgos regionales. Su proyección depende de su peso relativo en la coordinación fronteriza y de seguridad frente a gobernaciones vecinas con agendas propias.",
+      "nivel": "moderado",
+      "tendencia": "estable",
+      "factores_clave": [
+        "Coordinación de seguridad fronteriza con estados vecinos (Zulia, Apure).",
+        "Competencia de liderazgos regionales por recursos y protagonismo.",
+        "Corredor andino (Mérida, Trujillo) con dinámicas socioeconómicas propias.",
+        "Barinas y Apure como zonas de sensibilidad política y de seguridad."
+      ],
+      "alertas": [
+        {
+          "id": "occ-001",
+          "severidad": "baja",
+          "titulo": "Competencia por protagonismo regional",
+          "descripcion": "Otros gobernadores del occidente disputan visibilidad y recursos. Una alianza regional sólida fortalece la posición de Bernal; su ausencia la debilita.",
+          "fecha": "2026-06-03",
+          "fuentes": []
+        }
+      ]
+    }
+  ]
+}

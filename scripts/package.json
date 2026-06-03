@@ -1,0 +1,13 @@
+{
+  "name": "apreciacion-generator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Genera data/apreciacion.json llamando a la API de Claude (Anthropic) con búsqueda web.",
+  "scripts": {
+    "generar": "node generar-apreciacion.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.40.0"
+  }
+}
