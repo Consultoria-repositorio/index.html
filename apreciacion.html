@@ -4,35 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apreciación de Situación Política · Freddy Bernal</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy:    #0a1628;
-    --navy2:   #0d1f3c;
+    --navy:    #0a0a0a;
+    --navy2:   #0d0d0d;
     --blue:    #1a3a6b;
     --accent:  #c8973a;
     --amber:   #e0a94b;
     --red:     #b83232;
     --green:   #2e7d32;
     --white:   #ffffff;
-    --gray:    #8a99b0;
-    --light:   #d6dde8;
+    --gray:    #9a9a9a;
+    --light:   #e6e6e6;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: var(--navy);
-    font-family: 'Source Sans 3', sans-serif;
+    background: #000;
+    font-family: 'Readex Pro', system-ui, -apple-system, sans-serif;
     color: var(--white);
     font-size: 15px;
     line-height: 1.6;
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* ── TOPBAR ── */
   .topbar {
-    background: #06101e;
+    background: #000;
     border-bottom: 1px solid rgba(255,255,255,0.07);
     padding: 0 40px;
     display: flex;
@@ -62,7 +66,7 @@
   .topbar-tag {
     background: var(--accent); color: var(--navy);
     font-size: 9px; font-weight: 700; letter-spacing: 2px;
-    text-transform: uppercase; padding: 4px 10px; border-radius: 2px;
+    text-transform: uppercase; padding: 5px 13px; border-radius: 9999px;
   }
 
   /* ── PAGE HEADER ── */
@@ -82,7 +86,7 @@
   }
   .ph-divider { width: 40px; height: 3px; background: var(--accent); margin-bottom: 16px; }
   .ph-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Readex Pro', sans-serif;
     font-size: clamp(26px, 3.5vw, 40px);
     font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 6px;
   }
@@ -98,8 +102,8 @@
 
   /* ── GLOBAL BANNER ── */
   .global-banner {
-    background: linear-gradient(180deg, #0b1a2e 0%, #0a1628 100%);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: #0c0c0c;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     padding: 22px 40px;
   }
   .global-banner .inner {
@@ -121,7 +125,7 @@
   .nivel-badge {
     display: inline-flex; align-items: center; gap: 6px;
     font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 6px 12px; border-radius: 2px; white-space: nowrap;
+    padding: 6px 13px; border-radius: 9999px; white-space: nowrap;
   }
   .nivel-badge .dot { width: 7px; height: 7px; border-radius: 50%; }
   .nivel-critico  { background: rgba(184,50,50,0.20);  color: #ff7b7b; }
@@ -138,8 +142,8 @@
   /* trend arrows */
   .trend {
     display: inline-flex; align-items: center; gap: 4px;
-    font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
-    padding: 5px 9px; border-radius: 2px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.3px;
+    padding: 5px 11px; border-radius: 9999px;
   }
   .trend-ascendente  { background: rgba(184,50,50,0.14);  color: #ff9b9b; }
   .trend-estable     { background: rgba(255,255,255,0.06); color: var(--gray); }
@@ -147,7 +151,7 @@
   .trend .arrow { font-size: 13px; line-height: 1; }
 
   /* ── CONTROLS BAR ── */
-  .controls-bar { background: #08131f; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0 40px; }
+  .controls-bar { background: #080808; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0 40px; }
   .controls-bar .inner {
     max-width: 1100px; margin: 0 auto;
     display: flex; align-items: center; gap: 8px; padding: 14px 0; flex-wrap: wrap;
@@ -158,9 +162,9 @@
   }
   .filter-btn {
     background: transparent; border: 1px solid rgba(255,255,255,0.12);
-    color: var(--gray); font-family: 'Source Sans 3', sans-serif;
+    color: var(--gray); font-family: 'Readex Pro', sans-serif;
     font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-    padding: 7px 16px; cursor: pointer; border-radius: 2px;
+    padding: 8px 17px; cursor: pointer; border-radius: 9999px;
     transition: background 0.18s, color 0.18s, border-color 0.18s; white-space: nowrap;
   }
   .filter-btn:hover { border-color: rgba(200,151,58,0.5); color: var(--accent); }
@@ -168,7 +172,7 @@
   .filter-btn .fc { opacity: 0.6; margin-left: 5px; font-size: 9px; }
 
   /* severity legend */
-  .legend-bar { background: #06101e; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0 40px; }
+  .legend-bar { background: #000; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0 40px; }
   .legend-bar .inner {
     max-width: 1100px; margin: 0 auto;
     display: flex; align-items: center; gap: 18px; padding: 10px 0; flex-wrap: wrap;
@@ -181,20 +185,20 @@
   .sw-baja    { background: #7aadff; }
 
   /* ── MINI MAP STRIP ── */
-  .map-strip { background: #08131f; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0 40px; }
+  .map-strip { background: #080808; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0 40px; }
   .map-strip .inner {
     max-width: 1100px; margin: 0 auto;
     display: flex; align-items: stretch; gap: 1px; padding: 0;
     background: rgba(255,255,255,0.05); overflow: hidden;
   }
   .map-dot {
-    flex: 1; min-width: 110px; background: #0b1a2e; border: none; cursor: pointer;
+    flex: 1; min-width: 110px; background: #0d0d0d; border: none; cursor: pointer;
     padding: 13px 12px; display: flex; align-items: center; gap: 9px;
-    font-family: 'Source Sans 3', sans-serif; text-align: left;
+    font-family: 'Readex Pro', sans-serif; text-align: left;
     transition: background 0.18s; position: relative;
   }
-  .map-dot:hover { background: #0e2040; }
-  .map-dot.active { background: #0e2040; }
+  .map-dot:hover { background: #181818; }
+  .map-dot.active { background: #181818; }
   .map-dot.active::after {
     content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--accent);
   }
@@ -214,7 +218,7 @@
     margin-bottom: 24px; padding-bottom: 14px;
     border-bottom: 1px solid rgba(255,255,255,0.07); flex-wrap: wrap; gap: 10px;
   }
-  .cs-heading { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--white); }
+  .cs-heading { font-family: 'Readex Pro', sans-serif; font-size: 17px; font-weight: 700; color: var(--white); }
   .cs-heading span { color: var(--accent); }
   .cs-count { font-size: 11px; color: var(--gray); letter-spacing: 1px; }
 
@@ -224,7 +228,7 @@
     gap: 1px; background: rgba(255,255,255,0.06);
   }
   .env-card {
-    background: #0b1a2e; padding: 22px 22px 20px;
+    background: #0d0d0d; padding: 22px 22px 20px;
     display: flex; flex-direction: column; gap: 13px;
     position: relative; transition: background 0.18s; overflow: hidden;
   }
@@ -232,13 +236,13 @@
     content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
     background: var(--accent); transition: width 0.28s ease;
   }
-  .env-card:hover { background: #0e2040; }
+  .env-card:hover { background: #181818; }
   .env-card:hover::after { width: 100%; }
 
   .env-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
   .env-id { display: flex; align-items: center; gap: 10px; }
   .env-icon { font-size: 22px; line-height: 1; }
-  .env-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--white); line-height: 1.2; }
+  .env-name { font-family: 'Readex Pro', sans-serif; font-size: 16px; font-weight: 700; color: var(--white); line-height: 1.2; }
   .env-badges { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
 
   .env-summary { font-size: 12.5px; color: rgba(255,255,255,0.55); line-height: 1.6; }
@@ -267,7 +271,7 @@
   .alert-top { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
   .sev-tag {
     font-size: 8px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-    padding: 2px 7px; border-radius: 2px; white-space: nowrap;
+    padding: 3px 9px; border-radius: 9999px; white-space: nowrap;
   }
   .alert-fecha { font-size: 9px; color: rgba(255,255,255,0.3); white-space: nowrap; }
   .alert-title { font-size: 12px; font-weight: 600; color: var(--white); line-height: 1.35; }
@@ -295,7 +299,7 @@
     display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
     margin-top: 6px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
     color: var(--accent); text-decoration: none;
-    border: 1px solid rgba(200,151,58,0.3); padding: 6px 12px; border-radius: 2px;
+    border: 1px solid rgba(200,151,58,0.3); padding: 7px 14px; border-radius: 9999px;
     transition: background 0.18s, border-color 0.18s;
   }
   .env-maplink:hover { background: rgba(200,151,58,0.1); border-color: rgba(200,151,58,0.7); }
@@ -312,12 +316,12 @@
 
   /* ── FOOTER ── */
   footer {
-    background: #06101e; border-top: 1px solid rgba(255,255,255,0.05);
+    background: #000; border-top: 1px solid rgba(255,255,255,0.05);
     padding: 20px 40px; display: flex; justify-content: space-between;
     align-items: center; flex-wrap: wrap; gap: 10px;
   }
   .fl { font-size: 11px; color: rgba(255,255,255,0.2); }
-  .fr { font-family: 'Playfair Display', serif; font-size: 13px; color: var(--accent); font-style: italic; }
+  .fr { font-family: 'Readex Pro', sans-serif; font-size: 13px; color: var(--accent); font-style: italic; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
