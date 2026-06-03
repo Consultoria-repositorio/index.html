@@ -27,12 +27,16 @@ fundamentado y accionable.
 - `tendencia`: uno de `ascendente | estable | descendente`. `ascendente` = el riesgo/tensión EMPEORA;
   `descendente` = MEJORA. Justifica la tendencia comparándola contra la apreciación previa que se te entrega.
 - `factores_clave`: 3 a 5 frases cortas con los factores determinantes.
+- `implicaciones`: 2 a 4 frases con las **implicaciones concretas para Freddy Bernal** en ese entorno
+  (qué gana, qué arriesga, de qué depende su posición).
 - `alertas`: 0 a N alertas, cada una con:
   - `id`: identificador corto único (p. ej. "ven-001").
   - `severidad`: uno de `critica | alta | media | baja`.
   - `titulo`: titular corto.
   - `descripcion`: 1-2 frases con la implicación concreta para Bernal.
   - `fecha`: fecha ISO (AAAA-MM-DD) del hecho o de la evaluación.
+  - `coordenadas`: OPCIONAL, `[latitud, longitud]` si el hecho tiene una ubicación geográfica
+    conocida y razonablemente precisa (para ubicarlo en el mapa). Omítela si no la conoces.
   - `fuentes`: arreglo de URLs y/o identificadores de noticias que sustentan la alerta.
 
 ## Nivel y tendencia globales

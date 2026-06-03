@@ -104,12 +104,14 @@ function bloqueEsquemaYNoticias(noticias, prev) {
       nivel: NIVELES.join(' | '),
       tendencia: TENDENCIAS.join(' | '),
       factores_clave: ['string (3 a 5)'],
+      implicaciones: ['string (2 a 4 implicaciones para Bernal)'],
       alertas: [{
         id: 'string',
         severidad: SEVERIDADES.join(' | '),
         titulo: 'string',
         descripcion: 'string',
         fecha: 'AAAA-MM-DD',
+        coordenadas: ['[lat, lng] OPCIONAL si el hecho tiene ubicación conocida'],
         fuentes: ['url o identificador de noticia'],
       }],
     })),
@@ -209,6 +211,7 @@ function normalizar(data) {
     e.icono = e.icono || meta.icono;
     e.alertas = Array.isArray(e.alertas) ? e.alertas : [];
     e.factores_clave = Array.isArray(e.factores_clave) ? e.factores_clave : [];
+    e.implicaciones = Array.isArray(e.implicaciones) ? e.implicaciones : [];
     return e;
   });
   // presencia_digital: garantiza el objeto con la nota de fuente pendiente
