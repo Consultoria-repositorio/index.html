@@ -39,6 +39,18 @@ fundamentado y accionable.
 - `nivel_global` y `tendencia_global`: síntesis transversal de los 6 entornos (mismos vocabularios).
 - `resumen_ejecutivo`: 2-3 frases que sinteticen la situación general de Bernal.
 
+## Presencia digital (`presencia_digital`)
+Estima la presencia y **visibilidad política** de Freddy Bernal en el espacio digital/mediático,
+a partir de la búsqueda web (cobertura, menciones, redes, medios). Campos:
+- `visibilidad`: 0-100, porcentaje de visibilidad política estimada.
+- `tendencia`: `ascendente | estable | descendente`.
+- `menciones_30d`: entero, menciones estimadas en los últimos 30 días.
+- `sentimiento_favorable`: 0-100, % de cobertura favorable o neutral.
+- `alcance_estimado`: entero, alcance/impresiones estimadas.
+- `fuente`: describe en qué te basaste y aclara que es una **estimación** (la fuente de datos
+  definitiva se conectará más adelante).
+Marca explícitamente que son **estimaciones**; no inventes cifras con falsa precisión.
+
 ## Formato de salida — CRÍTICO
 Responde **únicamente con un objeto JSON válido** que cumpla EXACTAMENTE el esquema indicado en el
 mensaje del usuario. No incluyas texto antes ni después, ni explicaciones, ni bloques de código

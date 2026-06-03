@@ -88,6 +88,14 @@ function bloqueEsquemaYNoticias(noticias, prev) {
     resumen_ejecutivo: 'string',
     nivel_global: NIVELES.join(' | '),
     tendencia_global: TENDENCIAS.join(' | '),
+    presencia_digital: {
+      visibilidad: 'número 0-100 (% de visibilidad política estimada)',
+      tendencia: TENDENCIAS.join(' | '),
+      menciones_30d: 'número entero (menciones estimadas en 30 días)',
+      sentimiento_favorable: 'número 0-100 (% de sentimiento favorable/neutral estimado)',
+      alcance_estimado: 'número entero (alcance/impresiones estimadas)',
+      fuente: 'string (describe la base de la estimación)',
+    },
     entornos: ENTORNOS.map((e) => ({
       id: e.id,
       nombre: e.nombre,
@@ -152,6 +160,18 @@ function validar(data) {
   if (!NIVELES.includes(data.nivel_global)) err.push(`nivel_global inválido: ${data.nivel_global}`);
   if (!TENDENCIAS.includes(data.tendencia_global)) err.push(`tendencia_global inválido: ${data.tendencia_global}`);
 
+  // presencia_digital es opcional, pero si viene debe ser coherente
+  if (data.presencia_digital != null) {
+    const p = data.presencia_digital;
+    if (typeof p !== 'object') err.push('presencia_digital no es objeto.');
+    else {
+      if (p.visibilidad != null && (isNaN(p.visibilidad) || p.visibilidad < 0 || p.visibilidad > 100))
+        err.push(`presencia_digital.visibilidad fuera de rango 0-100 (${p.visibilidad}).`);
+      if (p.sentimiento_favorable != null && (isNaN(p.sentimiento_favorable) || p.sentimiento_favorable < 0 || p.sentimiento_favorable > 100))
+        err.push(`presencia_digital.sentimiento_favorable fuera de rango 0-100 (${p.sentimiento_favorable}).`);
+    }
+  }
+
   if (!Array.isArray(data.entornos)) {
     err.push('entornos no es un arreglo.');
     return err;
@@ -191,6 +211,12 @@ function normalizar(data) {
     e.factores_clave = Array.isArray(e.factores_clave) ? e.factores_clave : [];
     return e;
   });
+  // presencia_digital: garantiza el objeto con la nota de fuente pendiente
+  data.presencia_digital = Object.assign(
+    { visibilidad: null, tendencia: 'estable', menciones_30d: null, sentimiento_favorable: null, alcance_estimado: null,
+      fuente: 'Estimación del modelo — pendiente de conexión a fuente real.' },
+    data.presencia_digital || {}
+  );
   data.generado = new Date().toISOString();
   data.modelo = MODEL;
   data.sujeto = data.sujeto || 'Freddy Bernal — Gobernador del estado Táchira';

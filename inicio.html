@@ -239,37 +239,37 @@
 
   <!-- Foreground content -->
   <div class="hero-content">
-    <h1 class="hero-title word-1">freddy</h1>
-    <h1 class="hero-title word-2">bernal</h1>
-    <h1 class="hero-title word-3">táchira</h1>
+    <h1 class="hero-title word-1">apreciación</h1>
+    <h1 class="hero-title word-2">situación</h1>
+    <h1 class="hero-title word-3">política</h1>
 
-    <p class="hero-desc">apreciación continua del entorno externo del gobernador del táchira, con alertas en seis frentes políticos.</p>
+    <p class="hero-desc">presencia y visibilidad política de freddy bernal en el entorno externo del táchira, con monitoreo continuo.</p>
 
-    <!-- top-right stat -->
+    <!-- top-right stat: visibilidad política -->
     <div class="stat-tr">
       <div class="stat-row">
         <span class="divider rot-pos"></span>
-        <span class="stat-num" id="statEntornos">6</span>
+        <span class="stat-num" id="statVisibilidad">—</span>
       </div>
-      <div class="stat-sub">entornos monitoreados</div>
+      <div class="stat-sub">visibilidad política</div>
     </div>
 
-    <!-- bottom-left stat -->
+    <!-- bottom-left stat: menciones -->
     <div class="stat-bl">
       <div class="stat-row">
-        <span class="stat-num" id="statAlertas">—</span>
+        <span class="stat-num" id="statMenciones">—</span>
         <span class="divider rot-neg"></span>
       </div>
-      <div class="stat-sub">alertas activas</div>
+      <div class="stat-sub">menciones (30 días)</div>
     </div>
 
-    <!-- bottom-right stat -->
+    <!-- bottom-right stat: sentimiento -->
     <div class="stat-br">
       <div class="stat-row">
         <span class="divider rot-neg"></span>
-        <span class="stat-num" id="statNivel">7d</span>
+        <span class="stat-num" id="statSentimiento">—</span>
       </div>
-      <div class="stat-sub" id="statNivelSub">actualización vía claude</div>
+      <div class="stat-sub">sentimiento favorable</div>
     </div>
   </div>
 
@@ -278,21 +278,24 @@
 </div>
 
 <script>
-/* Rellena las estadísticas con datos reales del tablero */
+/* Rellena las estadísticas de presencia digital desde los datos del tablero.
+   La fuente real se conectará más adelante; por ahora viene de presencia_digital. */
 (function () {
   'use strict';
-  var NIVEL_LABEL = { critico:'crítico', elevado:'elevado', moderado:'moderado', estable:'estable', favorable:'favorable' };
+  function fmtNum(n) {
+    if (n == null || isNaN(n)) return '—';
+    n = Number(n);
+    if (n >= 1000000) return '+' + (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'm';
+    if (n >= 1000)    return '+' + (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+    return String(n);
+  }
   fetch('data/apreciacion.json?v=' + Date.now())
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
     .then(function (d) {
-      var entornos = Array.isArray(d.entornos) ? d.entornos : [];
-      var alertas = entornos.reduce(function (s, e) { return s + (Array.isArray(e.alertas) ? e.alertas.length : 0); }, 0);
-      document.getElementById('statEntornos').textContent = entornos.length || 6;
-      document.getElementById('statAlertas').textContent = alertas;
-      if (d.nivel_global) {
-        document.getElementById('statNivel').textContent = NIVEL_LABEL[d.nivel_global] || d.nivel_global;
-        document.getElementById('statNivelSub').textContent = 'nivel global';
-      }
+      var p = d.presencia_digital || {};
+      document.getElementById('statVisibilidad').textContent = (p.visibilidad != null) ? p.visibilidad + '%' : '—';
+      document.getElementById('statMenciones').textContent   = fmtNum(p.menciones_30d);
+      document.getElementById('statSentimiento').textContent = (p.sentimiento_favorable != null) ? p.sentimiento_favorable + '%' : '—';
     })
     .catch(function () { /* mantiene los valores por defecto */ });
 }());

@@ -5,6 +5,14 @@
   "resumen_ejecutivo": "Apreciación inicial de referencia (semilla). La posición externa de Freddy Bernal se sostiene sobre su control del aparato de seguridad fronteriza y su alineación con el poder central, pero queda expuesta a la volatilidad binacional Venezuela–Colombia, a las dinámicas de la economía fronteriza y a la competencia política regional en el occidente del país. Este documento será reemplazado automáticamente cada semana por el análisis generado vía la API de Claude.",
   "nivel_global": "elevado",
   "tendencia_global": "estable",
+  "presencia_digital": {
+    "visibilidad": 64,
+    "tendencia": "ascendente",
+    "menciones_30d": 1240,
+    "sentimiento_favorable": 52,
+    "alcance_estimado": 2300000,
+    "fuente": "Estimación de referencia (semilla) — pendiente de conexión a fuente real (monitoreo de redes/medios)."
+  },
   "entornos": [
     {
       "id": "venezuela",
