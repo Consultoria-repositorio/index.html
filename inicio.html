@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apreciación de Situación · Freddy Bernal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body, #root { height: 100%; }
+
+  body {
+    font-family: 'Readex Pro', system-ui, -apple-system, sans-serif;
+    background: #000;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* lowercase everywhere in the hero */
+  .hero, .hero * { text-transform: lowercase; }
+
+  .hero-title { letter-spacing: -0.04em; line-height: 0.95; }
+
+  /* ── SECTION ── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    height: 100svh;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+  }
+
+  /* ── BACKGROUND VIDEO ── */
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  /* subtle scrim for legibility over any frame */
+  .hero-scrim {
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.10) 45%, rgba(0,0,0,0.35) 100%);
+  }
+
+  /* ── NAVBAR ── */
+  .navbar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px;
+  }
+
+  .pill {
+    background: rgba(23,23,23,0.90);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 9999px;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px 12px 16px;
+  }
+  .nav-brand svg { height: 20px; width: 20px; flex-shrink: 0; }
+  .nav-brand .brand-name {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .nav-brand .brand-name b { font-weight: 600; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+  }
+  .nav-links a {
+    color: #d4d4d4;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 9999px;
+    transition: color 0.2s, background 0.2s;
+  }
+  .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.06); }
+
+  .nav-cta {
+    background: #c8973a;            /* acento dorado de la marca */
+    color: #1a1206;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 9999px;
+    padding: 12px 26px;
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: #d9aa52; transform: translateY(-1px); }
+
+  /* ── FOREGROUND CONTENT ── */
+  .hero-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .hero-title {
+    position: absolute;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14vw;
+    white-space: nowrap;
+  }
+  .word-1 { left: 16px;  top: 17%; }
+  .word-2 { right: 16px; top: 37%; }
+  .word-3 { left: 16%;   top: 57%; }
+
+  /* description */
+  .hero-desc {
+    position: absolute;
+    left: 24px;
+    top: 47%;
+    max-width: 240px;
+    font-size: 15px;
+    line-height: 1.35;
+    color: rgba(255,255,255,0.90);
+    z-index: 11;
+  }
+
+  /* ── STAT BLOCKS ── */
+  .stat-num {
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: #fff;
+  }
+  .stat-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.70);
+    margin-top: 4px;
+  }
+  .stat-row { display: flex; align-items: center; gap: 12px; }
+  .divider {
+    height: 1px;
+    width: 96px;
+    background: rgba(255,255,255,0.40);
+    flex-shrink: 0;
+  }
+  .rot-pos { transform: rotate(20deg); }
+  .rot-neg { transform: rotate(-20deg); }
+
+  .stat-tr { position: absolute; right: 24px; top: 14%; text-align: right; z-index: 11; }
+  .stat-tr .stat-row { justify-content: flex-end; }
+  .stat-tr .stat-sub { text-align: right; }
+
+  .stat-bl { position: absolute; left: 24px; bottom: 80px; z-index: 11; }
+  .stat-br { position: absolute; right: 24px; bottom: 64px; text-align: right; z-index: 11; }
+  .stat-br .stat-row { justify-content: flex-end; }
+  .stat-br .stat-sub { text-align: right; }
+
+  /* bottom gradient */
+  .bottom-fade {
+    pointer-events: none;
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 192px;
+    z-index: 5;
+    background: linear-gradient(to bottom, transparent, #000);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (min-width: 768px) {
+    .navbar { padding: 24px 40px; }
+    .hero-title { font-size: 13vw; }
+    .word-1 { left: 40px; }
+    .word-2 { right: 40px; }
+    .word-3 { left: 28%; }
+    .hero-desc { left: 40px; }
+    .stat-tr { right: 96px; }
+    .stat-bl { left: 80px; bottom: 96px; }
+    .stat-br { right: 80px; bottom: 80px; }
+  }
+  @media (max-width: 767px) {
+    .nav-links { display: none; }
+    .divider { display: none; }
+    .hero-desc { max-width: 200px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+<div id="root">
+<section class="hero">
+
+  <!-- Background video -->
+  <video class="hero-video" autoplay loop muted playsinline poster="">
+    <source src="assets/hero-bg.mp4" type="video/mp4">
+  </video>
+  <div class="hero-scrim"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <!-- left pill: logo + brand -->
+    <div class="pill nav-brand">
+      <svg viewBox="0 0 256 256" aria-hidden="true">
+        <path fill="#ffffff" d="M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z"/>
+      </svg>
+      <span class="brand-name">poder <b>&amp;</b> narrativa</span>
+    </div>
+
+    <!-- center pill: nav links -->
+    <div class="pill nav-links">
+      <a href="apreciacion.html">tablero</a>
+      <a href="region.html?entorno=venezuela">mapas</a>
+      <a href="apreciacion.html">alertas</a>
+      <a href="noticias.html">noticias</a>
+    </div>
+
+    <!-- right CTA -->
+    <a href="apreciacion.html" class="nav-cta">ver tablero</a>
+  </nav>
+
+  <!-- Foreground content -->
+  <div class="hero-content">
+    <h1 class="hero-title word-1">apreciación</h1>
+    <h1 class="hero-title word-2">situación</h1>
+    <h1 class="hero-title word-3">política</h1>
+
+    <p class="hero-desc">presencia y visibilidad política de freddy bernal en el entorno externo del táchira, con monitoreo continuo.</p>
+
+    <!-- top-right stat: visibilidad política -->
+    <div class="stat-tr">
+      <div class="stat-row">
+        <span class="divider rot-pos"></span>
+        <span class="stat-num" id="statVisibilidad">—</span>
+      </div>
+      <div class="stat-sub">visibilidad política</div>
+    </div>
+
+    <!-- bottom-left stat: menciones -->
+    <div class="stat-bl">
+      <div class="stat-row">
+        <span class="stat-num" id="statMenciones">—</span>
+        <span class="divider rot-neg"></span>
+      </div>
+      <div class="stat-sub">menciones (30 días)</div>
+    </div>
+
+    <!-- bottom-right stat: sentimiento -->
+    <div class="stat-br">
+      <div class="stat-row">
+        <span class="divider rot-neg"></span>
+        <span class="stat-num" id="statSentimiento">—</span>
+      </div>
+      <div class="stat-sub">sentimiento favorable</div>
+    </div>
+  </div>
+
+  <div class="bottom-fade"></div>
+</section>
+</div>
+
+<script>
+/* Rellena las estadísticas de presencia digital desde los datos del tablero.
+   La fuente real se conectará más adelante; por ahora viene de presencia_digital. */
+(function () {
+  'use strict';
+  function fmtNum(n) {
+    if (n == null || isNaN(n)) return '—';
+    n = Number(n);
+    if (n >= 1000000) return '+' + (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'm';
+    if (n >= 1000)    return '+' + (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+    return String(n);
+  }
+  fetch('data/apreciacion.json?v=' + Date.now())
+    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+    .then(function (d) {
+      var p = d.presencia_digital || {};
+      document.getElementById('statVisibilidad').textContent = (p.visibilidad != null) ? p.visibilidad + '%' : '—';
+      document.getElementById('statMenciones').textContent   = fmtNum(p.menciones_30d);
+      document.getElementById('statSentimiento').textContent = (p.sentimiento_favorable != null) ? p.sentimiento_favorable + '%' : '—';
+    })
+    .catch(function () { /* mantiene los valores por defecto */ });
+}());
+</script>
+</body>
+</html>
