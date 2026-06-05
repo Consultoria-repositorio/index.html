@@ -19,6 +19,7 @@ import { dirname, join } from 'node:path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const DATA_DIR = join(ROOT, 'data');
+const DOCS_DIR = join(ROOT, 'documentos');
 const OUT_FILE = join(DATA_DIR, 'apreciacion.json');
 const HISTORY_DIR = join(DATA_DIR, 'apreciacion-history');
 
@@ -64,6 +65,54 @@ function leerNoticiasRecientes(maxSemanas = 3) {
     }
   }
   return items.join('\n');
+}
+
+/* ── Documentos de insumo (PDF nativo + textos) ── */
+function leerDocumentos() {
+  let archivos = [];
+  try {
+    archivos = readdirSync(DOCS_DIR).filter((f) => {
+      if (f.startsWith('.')) return false;
+      if (/^readme\.md$/i.test(f)) return false;
+      return /\.(pdf|txt|md|csv)$/i.test(f);
+    }).sort();
+  } catch { return []; }
+
+  const docs = [];
+  for (const f of archivos) {
+    const ext = f.split('.').pop().toLowerCase();
+    try {
+      if (ext === 'pdf') {
+        const b64 = readFileSync(join(DOCS_DIR, f)).toString('base64');
+        docs.push({ tipo: 'pdf', nombre: f, data: b64 });
+      } else {
+        const texto = readFileSync(join(DOCS_DIR, f), 'utf8');
+        docs.push({ tipo: 'texto', nombre: f, texto });
+      }
+    } catch (e) {
+      console.warn(`Aviso: no se pudo leer documento ${f}: ${e.message}`);
+    }
+  }
+  return docs;
+}
+
+/* Convierte los documentos en bloques de contenido para la API */
+function bloquesDocumentos(docs) {
+  const bloques = [];
+  if (!docs.length) return bloques;
+  bloques.push({ type: 'text', text:
+    'DOCUMENTOS DE INSUMO (carpeta documentos/). Son fuentes primarias internas: ' +
+    'analízalos y combínalos con la búsqueda web y las noticias. Cuando uses uno, cítalo ' +
+    'en "fuentes" como "documento: <nombre>".' });
+  docs.forEach((d) => {
+    if (d.tipo === 'pdf') {
+      bloques.push({ type: 'text', text: `— Documento adjunto: ${d.nombre} —` });
+      bloques.push({ type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: d.data } });
+    } else {
+      bloques.push({ type: 'text', text: `— Documento: ${d.nombre} —\n${d.texto}` });
+    }
+  });
+  return bloques;
 }
 
 function leerApreciacionPrevia() {
@@ -236,12 +285,27 @@ async function main() {
   const hoy = hoyISO();
   const noticias = leerNoticiasRecientes();
   const prev = leerApreciacionPrevia();
+  const documentos = leerDocumentos();
   const systemPrompt = readFileSync(join(__dirname, 'PROMPT.md'), 'utf8');
   const esquemaNoticias = bloqueEsquemaYNoticias(noticias, prev);
 
   const client = new Anthropic(); // lee ANTHROPIC_API_KEY del entorno
 
   console.log(`Generando apreciación (${hoy}) con modelo ${MODEL}…`);
+  if (documentos.length) {
+    console.log('Documentos de insumo:', documentos.map((d) => d.nombre).join(', '));
+  }
+
+  // Arma el contenido del mensaje: esquema+noticias, documentos, y la instrucción final.
+  const docBloques = bloquesDocumentos(documentos);
+  const content = [
+    { type: 'text', text: esquemaNoticias },
+    ...docBloques,
+    { type: 'text', text: `Fecha de hoy: ${hoy}. Investiga en la web la coyuntura actual de cada entorno, integra los documentos de insumo y devuelve SOLO el JSON del esquema, en español.` },
+  ];
+  // Marca de caché en el último bloque estable (esquema si no hay docs; último doc si los hay).
+  const idxCache = docBloques.length ? content.length - 2 : 0;
+  content[idxCache].cache_control = { type: 'ephemeral' };
 
   const message = await client.messages.create({
     model: MODEL,
@@ -250,13 +314,7 @@ async function main() {
     system: [
       { type: 'text', text: systemPrompt, cache_control: { type: 'ephemeral' } },
     ],
-    messages: [{
-      role: 'user',
-      content: [
-        { type: 'text', text: esquemaNoticias, cache_control: { type: 'ephemeral' } },
-        { type: 'text', text: `Fecha de hoy: ${hoy}. Investiga en la web la coyuntura actual de cada entorno y devuelve SOLO el JSON del esquema, en español.` },
-      ],
-    }],
+    messages: [{ role: 'user', content }],
   });
 
   if (message.usage) {

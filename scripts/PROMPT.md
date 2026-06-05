@@ -5,8 +5,12 @@ fundamentado y accionable.
 
 ## Método
 1. Usa la herramienta de **búsqueda web** para investigar la coyuntura más reciente (últimas
-   semanas) de cada entorno. Prioriza fuentes verificables y recientes.
+   semanas) de cada entorno. Prioriza fuentes verificables y recientes. NUNCA dejes de lado
+   la búsqueda web, aunque haya documentos adjuntos.
 2. Apóyate además en el **digest de noticias** del repositorio que se te entrega como contexto.
+2b. Integra los **documentos de insumo** adjuntos (carpeta documentos/) como fuentes primarias
+   internas. Combínalos con la web y las noticias; no los trates como única verdad ni los ignores.
+   Cuando uses uno, cítalo en `fuentes` como `documento: <nombre del archivo>`.
 3. Para cada afirmación relevante, **cita la fuente** (URL de la web, o el identificador del
    archivo de noticias) en el campo `fuentes` de la alerta correspondiente.
 4. Distingue con claridad entre hechos comprobados y **especulación**: si una valoración es

@@ -89,6 +89,14 @@ validación (entornos, niveles, tendencias y severidades válidos), protegiendo 
 
 ---
 
+## Documentos de insumo
+
+Puedes alimentar el análisis con tus propios documentos: coloca PDFs o textos en la carpeta
+**`documentos/`** y, en la corrida semanal, el generador los adjunta a la API de Claude (lectura
+nativa de PDF) y los **combina con la búsqueda web y las noticias** — no sustituye a internet, lo
+complementa. El análisis puede citar cada documento como `documento: <nombre>`. Ver
+`documentos/README.md` para el detalle.
+
 ## Personalización
 
 - **Prompt del análisis:** edita `scripts/PROMPT.md` (sin tocar código) para ajustar el enfoque.
