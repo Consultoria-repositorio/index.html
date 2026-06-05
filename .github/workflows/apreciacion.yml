@@ -31,7 +31,9 @@ jobs:
 
       - name: Generar apreciación con Claude
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Usa ANTHROPIC_API_KEY si existe; si no, cae a CONTEXTO (nombre alterno del secret).
+          # Recomendado a futuro: crear el secret como ANTHROPIC_API_KEY y borrar CONTEXTO.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.CONTEXTO }}
         run: node scripts/generar-apreciacion.mjs
 
       - name: Commit y push si hay cambios
