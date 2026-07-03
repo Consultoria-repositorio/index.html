@@ -108,4 +108,12 @@ complementa. El análisis puede citar cada documento como `documento: <nombre>`.
 
 ---
 
+## Otros proyectos en este repositorio
+
+| Proyecto | Páginas | Configuración |
+|---|---|---|
+| FUNDESTA — Reporte semanal de actividades del equipo | `fundesta-reportes.html`, `fundesta-dashboard.html` | Ver [`FUNDESTA-SETUP.md`](FUNDESTA-SETUP.md) |
+
+---
+
 *Unidad Estratégica Poder & Narrativa — "No se trata de reaccionar. Se trata de anticipar."*
